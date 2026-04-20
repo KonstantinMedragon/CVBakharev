@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Константин Бахарев | Head of Product</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #111111;
+            --secondary: #2c2c2c;
+            --accent: #3a3a3a;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-600: #525252;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--gray-100) 0%, var(--white) 50%, var(--gray-200) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-text .subtitle {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-text .tagline {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1rem 1.5rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-image {
+            position: relative;
+            align-self: start;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: linear-gradient(135deg, var(--gray-600) 0%, var(--primary) 100%);
+            border-radius: 20px;
+            opacity: 0.15;
+            filter: blur(40px);
+        }
+
+        .image-container {
+            background: var(--gray-100);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            line-height: 0;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: var(--gray-100);
+            object-fit: contain;
+            object-position: top center;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .contact-btn.secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--gray-200);
+        }
+
+        .contact-btn.secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: transparent;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Expertise Cards Section */
+        .expertise-cards {
+            background: var(--gray-100);
+            padding: 4rem 2rem;
+        }
+
+        .expertise-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .expertise-card:nth-child(even) {
+            direction: rtl;
+        }
+
+        .expertise-card:nth-child(even) .expertise-text {
+            direction: ltr;
+        }
+
+        .expertise-image {
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .expertise-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .expertise-card:hover .expertise-image img {
+            transform: scale(1.03);
+        }
+
+        .expertise-text {
+            padding: 3rem;
+        }
+
+        .expertise-text h3 {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .expertise-text p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--secondary);
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--white);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gray-600), var(--primary));
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 2;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            grid-column: 1;
+            text-align: right;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--gray-300);
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-content {
+            background: var(--gray-50);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gray-200);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .company {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .project-list {
+            list-style: none;
+        }
+
+        .project-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+        }
+
+        .project-list li:last-child {
+            border-bottom: none;
+        }
+
+        .project-list i {
+            color: var(--accent);
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        /* Competencies Section */
+        .competencies {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .competencies .section-header h2 {
+            color: var(--white);
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
+        .competencies .section-header p {
+            color: var(--gray-300);
+        }
+
+        .comp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .comp-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .comp-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--gray-300);
+        }
+
+        .comp-card i {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-300);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .comp-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            color: var(--white);
+        }
+
+        .comp-card p {
+            font-size: 0.875rem;
+            color: var(--gray-300);
+            line-height: 1.6;
+        }
+
+        /* International Section */
+        .international {
+            background: var(--white);
+        }
+
+        .intl-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .intl-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .intl-content p {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .intl-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .intl-card {
+            background: var(--gray-50);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 3px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .intl-card:hover {
+            background: var(--gray-100);
+            transform: translateX(5px);
+        }
+
+        .intl-card h4 {
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .intl-card p {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        .intl-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            aspect-ratio: 4/3;
+        }
+
+        .intl-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .intl-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Education Section */
+        .education {
+            background: var(--gray-100);
+        }
+
+        .edu-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .edu-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--primary);
+        }
+
+        .edu-card .degree {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card h3 {
+            font-size: 1.125rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card .school {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card .detail {
+            font-size: 0.875rem;
+            color: var(--secondary);
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .edu-card .diss-link {
+            margin-top: 0.75rem;
+        }
+
+        .edu-card .diss-link a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-contact a:hover {
+            opacity: 1;
+            color: var(--gray-300);
+        }
+
+        /* Language-specific visibility */
+        .lang-ru { display: block; }
+        .lang-en { display: none; }
+        body.lang-english .lang-ru { display: none; }
+        body.lang-english .lang-en { display: block; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text .tagline { text-align: left; }
+            .hero-stats { justify-content: flex-start; }
+            
+            .hero-image {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+            
+            .comp-grid, .edu-cards, .intl-split { grid-template-columns: 1fr; }
+            .expertise-card { grid-template-columns: 1fr; gap: 0; }
+            .expertise-card:nth-child(even) { direction: ltr; }
+            .expertise-text { padding: 2rem; order: 2; }
+            .expertise-image { min-height: 300px; order: 1; }
+            .timeline::before { left: 0; }
+            .timeline-item { grid-template-columns: 1fr; padding-left: 2rem; }
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-date { grid-column: 1; text-align: left; }
+            .timeline-dot { left: 0; transform: translateX(-50%); }
+            
+            .hero-text {
+                text-align: left;
+            }
+            .hero-text .subtitle {
+                text-align: left;
+            }
+            .hero-text .tagline {
+                text-align: left;
+                margin-left: 0;
+            }
+            .hero-stats {
+                justify-content: flex-start;
+            }
+            .contact-bar {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-text h1 { font-size: 2rem; }
+            .contact-bar { justify-content: flex-start; }
+            .intl-grid { grid-template-columns: 1fr; }
+            .expertise-text h3 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body class="lang-russian">
+    <div class="lang-switch">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="lang-ru">Константин<br>Бахарев</h1>
+                <h1 class="lang-en">Konstantin<br>Bakharev</h1>
+                <p class="subtitle lang-ru">Head of Product</p>
+                <p class="subtitle lang-en">Head of Product</p>
+                <p class="tagline lang-ru">Кандидат наук с 25+ летним стажем в биотехнологиях. Полный жизненный цикл продукта: от разработки до международной сертификации и масштабирования бизнеса.</p>
+                <p class="tagline lang-en">PhD with 25+ years of experience in biotechnology. Full product lifecycle: from development to international certification and business scaling.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat"><span class="stat-number">25+</span><span class="stat-label lang-ru">лет опыта</span><span class="stat-label lang-en">years exp.</span></div>
+                    <div class="stat"><span class="stat-number">PhD</span><span class="stat-label lang-ru">кандидат наук</span><span class="stat-label lang-en">PhD degree</span></div>
+                    <div class="stat"><span class="stat-number">3</span><span class="stat-label lang-ru">языка</span><span class="stat-label lang-en">languages</span></div>
+                </div>
+
+                <div class="contact-bar">
+                    <a href="https://wa.me/79217900603" target="_blank" class="contact-btn"><i data-lucide="message-circle"></i> WhatsApp</a>
+                    <a href="mailto:konstantlab@gmail.com" class="contact-btn secondary"><i data-lucide="mail"></i> Email</a>
+                    <a href="https://linkedin.com/in/drbakharev" target="_blank" class="contact-btn secondary"><i data-lucide="linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/KonstantinMedragon/CVBakharev/cd12ac477bf30e2ddda586f66e6690547657ee19/1.png" alt="Константин Бахарев">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expertise-cards">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="lang-ru">Экспертиза в действии</h2>
+                <h2 class="lang-en">Expertise in Action</h2>
+                <div class="accent-line"></div>
+                <p class="lang-ru">Разработка продуктов, работа с сырьём и производственные процессы</p>
+                <p class="lang-en">Product development, raw material sourcing, and manufacturing processes</p>
+            </div>
+        </div>
+        <!-- Блок 1: Соавтор рецептур травяных сборов и эликсиров -->
+        <div class="expertise-card scroll-reveal">
+            <div class="expertise-image"><img src="kaigorodov.png" alt="Травники Кайгородовы"></div>
+            <div class="expertise-text">
+                <h3 class="lang-ru">Соавтор рецептур линейки травяных сборов и эликсиров</h3>
+                <h3 class="lang-en">Co-author of herbal blends and elixirs formulations</h3>
+                <p class="lang-ru">Желудочный, почечный, сосудистый, «Мужская сила», противовирусный и другие авторские сборы. Полный цикл: идея → подбор сырья → технология → упаковка → производство.</p>
+                <p class="lang-en">Gastric, renal, vascular, "Male Power", antiviral and other proprietary blends. Full cycle: concept → raw material sourcing → technology → packaging → production.</p>
+            </div>
+        </div>
+        <!-- Блок 2: Опыт в пчеловодстве и создание собственной линейки продуктов -->
+        <div class="expertise-card scroll-reveal">
+            <div class="expertise-image"><img src="vax-cosmetic.png" alt="Пчеловодство и собственная линейка"></div>
+            <div class="expertise-text">
+                <h3 class="lang-ru">Опыт в пчеловодстве и создание собственной линейки продуктов</h3>
+                <h3 class="lang-en">Beekeeping experience and own product line development</h3>
+                <p class="lang-ru">Разработка 15+ SKU БАД и уходовой косметики: порошки на основе ТКМ, мази на пчелином воске, масла, сборы. Полный цикл от формулы до продаж.</p>
+                <p class="lang-en">Development of 15+ SKU of dietary supplements and natural cosmetics: TCM-based powders, beeswax ointments, oils, blends. Full cycle from formula to sales.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="lang-ru">Ключевые проекты</h2>
+                <h2 class="lang-en">Key Projects</h2>
+                <div class="accent-line"></div>
+                <p class="lang-ru">Траектория развития в биотехнологиях и смежных областях</p>
+                <p class="lang-en">Career trajectory in biotechnology and related fields</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-date">2003 — present</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="lang-ru">Заместитель генерального директора по научной работе</h3>
+                        <h3 class="lang-en">Chief Science Officer</h3>
+                        <p class="company">JSC «Vector-Best-Baltika»</p>
+                        <ul class="project-list">
+                            <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Технологический трансфер триглицеридов</strong><strong class="lang-en">Triglycerides Technology Transfer</strong><br><span class="lang-ru">Организовал передачу технологии от европейского партнёра</span><span class="lang-en">Technology transfer from a European partner</span></div></li>
+                            <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Набор для определения витамина D (ELISA/CLIA)</strong><strong class="lang-en">Vitamin D Assay Kit (ELISA/CLIA)</strong><br><span class="lang-ru">Полный цикл: подбор антител, оптимизация формата</span><span class="lang-en">Full cycle: antibody selection, format optimization</span></div></li>
+                            <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Блокирующие реагенты для конкурентного ИФА</strong><strong class="lang-en">Blocking Reagents for Competitive ELISA</strong><br><span class="lang-ru">Снижение неспецифических взаимодействий</span><span class="lang-en">Non-specific interactions elimination</span></div></li>
+                            <li><i data-lucide="check-circle"></i><div><strong>Ultima 200 & ORIENTER FA280</strong><br><span class="lang-ru">Интеграция китайских анализаторов</span><span class="lang-en">Integration of Chinese analyzers</span></div></li>
+                            <li><i data-lucide="check-circle"></i><div><strong>RealFly & RbMag</strong><br><span class="lang-ru">Полностью российская разработка от R&D до серийного производства</span><span class="lang-en">Full domestic development from R&D to serial production</span></div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-date">2020 — 2024</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="lang-ru">Соавтор / Технолог</h3>
+                        <h3 class="lang-en">Co-author / Technologist</h3>
+                        <p class="company">Проект «Травники Кайгородовы» (eco-bay.ru)</p>
+                        <ul class="project-list">
+                            <li><i data-lucide="leaf"></i><div><span class="lang-ru">Соавтор рецептур линейки травяных сборов и эликсиров: желудочный, почечный, сосудистый, «Мужская сила», противовирусный и др.</span><span class="lang-en">Co-author of herbal blends and elixirs: gastric, renal, vascular, "Male Power", antiviral, etc.</span></div></li>
+                            <li><i data-lucide="flask-conical"></i><div><span class="lang-ru">Полный цикл: идея → подбор сырья (дикоросы) → технология сушки/хранения → упаковка → передача в производство.</span><span class="lang-en">Full cycle: concept → raw material sourcing → drying/storage tech → packaging → production handover.</span></div></li>
+                            <li><i data-lucide="package"></i><div><span class="lang-ru">Контроль качества сырья и условий хранения (температура, влажность, вентиляция).</span><span class="lang-en">Quality control of raw materials and storage conditions (temp, humidity, ventilation).</span></div></li>
+                            <li><i data-lucide="bar-chart"></i><div><span class="lang-ru">Участие в выстраивании складской и производственной рутины под 25+ SKU.</span><span class="lang-en">Helped to set up warehouse and production routine for 25+ SKU.</span></div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-date">2022 — present</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="lang-ru">Основатель / Разработчик (ИП)</h3>
+                        <h3 class="lang-en">Founder / Developer (Sole Proprietor)</h3>
+                        <p class="company">Medragon (medragon.tilda.ws/bee)</p>
+                        <ul class="project-list">
+                            <li><i data-lucide="droplets"></i><div><span class="lang-ru">Разработал 15+ SKU БАД и уходовой косметики: порошки на основе ТКМ, мази на пчелином воске, масла, сборы.</span><span class="lang-en">Developed 15+ SKU of dietary supplements and natural cosmetics: TCM-based powders, beeswax ointments, oils, blends.</span></div></li>
+                            <li><i data-lucide="zap"></i><div><span class="lang-ru">Полный цикл: формула → закуп сырья → ручное производство → упаковка → продажи.</span><span class="lang-en">Full cycle: formula → raw material procurement → manual production → packaging → sales.</span></div></li>
+                            <li><i data-lucide="dollar-sign"></i><div><span class="lang-ru">Управление unit-экономикой: себестоимость, маржинальность, розничная цена.</span><span class="lang-en">Unit-economics management: cost price, margin, retail price.</span></div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-date">2018 — 2020</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="lang-ru">Постдокторант (исследовательская стипендия)</h3>
+                        <h3 class="lang-en">Postdoctoral Researcher</h3>
+                        <p class="company">All-Russian Institute of Plant Protection</p>
+                        <ul class="project-list">
+                            <li><i data-lucide="microscope"></i><div><span class="lang-ru">Исследование социальных структур: медоносные пчёлы и патоген <em>Nosema ceranae</em></span><span class="lang-en">Social structures research: honey bees and pathogen <em>Nosema ceranae</em></span></div></li>
+                            <li><i data-lucide="users"></i><div><span class="lang-ru">Управление экспериментальной пасекой — системное мышление</span><span class="lang-en">Experimental apiary management — systems thinking</span></div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-date">2000 — 2003</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="lang-ru">Руководитель лабораторного подразделения</h3>
+                        <h3 class="lang-en">Laboratory Department Head</h3>
+                        <p class="company">Alkor Bio Group</p>
+                        <ul class="project-list">
+                            <li><i data-lucide="flask-conical"></i><div><span class="lang-ru">Лаборатория очистки биомолекул и синтеза конъюгатов</span><span class="lang-en">Biomolecule purification and conjugate synthesis laboratory</span></div></li>
+                            <li><i data-lucide="droplets"></i><div><span class="lang-ru">Очистка моноклональных антител: аффинная хроматография</span><span class="lang-en">Monoclonal antibody purification: affinity chromatography</span></div></li>
+                            <li><i data-lucide="atom"></i><div><span class="lang-ru">Синтез конъюгатов: пероксидаза хрена, щелочная фосфатаза</span><span class="lang-en">Conjugate synthesis: horseradish peroxidase, alkaline phosphatase</span></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="competencies">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="lang-ru">Компетенции</h2>
+                <h2 class="lang-en">Technical Competencies</h2>
+                <div class="accent-line" style="background: var(--gray-300);"></div>
+                <p class="lang-ru">Экспертиза в разработке продуктов, снабжении и регуляторике</p>
+                <p class="lang-en">Expertise in product development, supply chain, and regulatory affairs</p>
+            </div>
+            <div class="comp-grid">
+                <div class="comp-card scroll-reveal"><i data-lucide="shield-check"></i><h3 class="lang-ru">Снабжение производства</h3><h3 class="lang-en">Production Supply Chain</h3><p class="lang-ru">Обеспечение закупки сырья и контроль качества</p><p class="lang-en">Raw material procurement and quality control</p></div>
+                <div class="comp-card scroll-reveal"><i data-lucide="file-text"></i><h3 class="lang-ru">Сопровождение регистрации продукции медицинского назначения</h3><h3 class="lang-en">Medical Device Registration Support</h3><p class="lang-ru">Получение РУ, отказных писем, сертификатов соответствия</p><p class="lang-en">Registration certificates, refusal letters, compliance certificates</p></div>
+                <div class="comp-card scroll-reveal"><i data-lucide="globe-2"></i><h3 class="lang-ru">Международная экспертиза</h3><h3 class="lang-en">International Expertise</h3><p class="lang-ru">Регуляторика (Китай), локализация, деловой этикет</p><p class="lang-en">Regulatory (China), localization, business etiquette</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="international">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="lang-ru">Международная деятельность</h2>
+                <h2 class="lang-en">International Activities</h2>
+                <div class="accent-line"></div>
+                <p class="lang-ru">Глобальные партнёрства и переговоры</p>
+                <p class="lang-en">Global partnerships and negotiations</p>
+            </div>
+            <div class="intl-split">
+                <div class="intl-content scroll-reveal">
+                    <h3 class="lang-ru">Переговоры и партнёрства</h3>
+                    <h3 class="lang-en">Negotiations & Partnerships</h3>
+                    <p class="lang-ru">Веду переговоры о дистрибуции, OEM-поставках и технологическом трансфере. Лично открывал и налаживал бизнес в Таиланде и Сербии. Глубокое понимание регуляторики и специфики китайского рынка.</p>
+                    <p class="lang-en">Leading negotiations on distribution, OEM supply, and technology transfer. Personally established and managed business in Thailand and Serbia. Deep understanding of regulations and the Chinese market specifics.</p>
+                    <div class="intl-grid">
+                        <div class="intl-card"><h4><i data-lucide="map-pin"></i> <span class="lang-ru">Китайский рынок</span><span class="lang-en">Chinese Market</span></h4><p class="lang-ru">Регуляторика, локализация</p><p class="lang-en">Regulatory affairs, localization</p></div>
+                        <div class="intl-card"><h4><i data-lucide="handshake"></i> <span class="lang-ru">Деловые переговоры</span><span class="lang-en">Business Negotiations</span></h4><p class="lang-ru">Дистрибуция, OEM, трансфер</p><p class="lang-en">Distribution, OEM, transfer</p></div>
+                        <div class="intl-card"><h4><i data-lucide="building-2"></i> <span class="lang-ru">Представительства</span><span class="lang-en">Representations</span></h4><p class="lang-ru">Открытие бизнеса в Таиланде и Сербии</p><p class="lang-en">Business setup in Thailand and Serbia</p></div>
+                        <div class="intl-card"><h4><i data-lucide="languages"></i> <span class="lang-ru">Языки</span><span class="lang-en">Languages</span></h4><p class="lang-ru">Английский (продвинутый), Китайский HSK2, Русский (родной)</p><p class="lang-en">English (advanced), Chinese HSK2, Russian (native)</p></div>
+                    </div>
+                </div>
+                <div class="intl-image scroll-reveal">
+                    <img src="https://raw.githubusercontent.com/KonstantinMedragon/CVBakharev/c04f872edc5d6e113d3543a6663538859264d2ea/pexels-pixabay-261621.jpg" alt="International contracts">
+                    <div class="intl-badge">Global Partnerships</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="education">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="lang-ru">Образование</h2>
+                <h2 class="lang-en">Education</h2>
+                <div class="accent-line"></div>
+                <p class="lang-ru">Академический фундамент и непрерывное развитие</p>
+                <p class="lang-en">Academic foundation and continuous development</p>
+            </div>
+            <div class="edu-cards">
+                <div class="edu-card scroll-reveal">
+                    <div class="degree lang-ru">Кандидат наук (PhD)</div><div class="degree lang-en">PhD Degree</div>
+                    <h3 class="lang-ru">Информационные системы и процессы</h3><h3 class="lang-en">Information Systems and Processes</h3>
+                    <p class="school">Saint Petersburg University</p>
+                    <p class="detail">2007 — 2008 | <span class="lang-ru">Диплом с отличием</span><span class="lang-en">Honors degree</span></p>
+                    <div class="diss-link"><a href="https://www.dissercat.com/content/regionalnaya-informatsionnaya-sistema-monitoringa-obektov-vodozabora-i-vodoochistki" target="_blank">📄 <span class="lang-ru">Ссылка на диссертацию</span><span class="lang-en">Thesis link</span></a></div>
+                </div>
+                <div class="edu-card scroll-reveal"><div class="degree lang-ru">Магистр</div><div class="degree lang-en">Master's Degree</div><h3 class="lang-ru">Биохимия и молекулярная биология</h3><h3 class="lang-en">Biochemistry and Molecular Biology</h3><p class="school">Saint Petersburg State University</p><p class="detail">1999 — 2003 | <span class="lang-ru">Средний балл: 4.9/5.0</span><span class="lang-en">GPA: 4.9/5.0</span></p></div>
+                <div class="edu-card scroll-reveal"><div class="degree lang-ru">Незаконченное среднее</div><div class="degree lang-en">Incomplete Secondary</div><h3 class="lang-ru">Аналитическая химия</h3><h3 class="lang-en">Analytical Chemistry</h3><p class="school">Mendeleev Chemical-Technological College</p><p class="detail">1997 — 1999 | <span class="lang-ru">Средний балл: 5.0/5.0</span><span class="lang-en">GPA: 5.0/5.0</span></p></div>
+            </div>
+            <div style="margin-top: 3rem; text-align: center;" class="scroll-reveal">
+                <h3 style="margin-bottom: 1.5rem; color: var(--primary);" class="lang-ru">Дополнительное обучение</h3>
+                <h3 style="margin-bottom: 1.5rem; color: var(--primary);" class="lang-en">Additional Training</h3>
+                <div style="display: inline-flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                    <div style="background: var(--white); padding: 1rem 2rem; border-radius: 50px; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+                        <i data-lucide="award" style="color: var(--accent);"></i>
+                        <span style="font-weight: 500;">Vinh Giang: <span class="lang-ru">ораторское мастерство и убедительная коммуникация</span><span class="lang-en">public speaking and persuasive communication</span></span>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; text-align: center;" class="scroll-reveal">
+                <img src="recipe-cert.png" alt="Сертификат ТКМ" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--gray-600);">Сертификат «Рецептура ТКМ», 92 часа</p>
+            </div>
+            <div style="margin-top: 2rem; text-align: center; font-size: 0.8rem; color: var(--gray-600);">
+                <span class="lang-ru">✨ Этот сайт создан с помощью вайб-кодинга ✨</span>
+                <span class="lang-en">✨ This website was built with vibe coding ✨</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">Konstantin Bakharev</h2>
+            <p style="margin-bottom: 2rem;">Head of Product | PhD | 25+ years in biotechnology & product development</p>
+            <div class="footer-contact">
+                <a href="https://wa.me/79217900603" target="_blank"><i data-lucide="message-circle"></i> WhatsApp</a>
+                <a href="mailto:konstantlab@gmail.com"><i data-lucide="mail"></i> konstantlab@gmail.com</a>
+                <a href="https://linkedin.com/in/drbakharev" target="_blank"><i data-lucide="linkedin"></i> LinkedIn</a>
+            </div>
+            <p style="color: var(--gray-600); font-size: 0.875rem;">© 2024 • Based in Thailand • Working with Asia and Europe</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.dataset.lang;
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.body.classList.toggle('lang-english', lang === 'en');
+                document.body.classList.toggle('lang-russian', lang === 'ru');
+            });
+        });
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+        document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('revealed'));
+    </script>
+</body>
+</html>
