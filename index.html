@@ -18,662 +18,87 @@
             --gray-600: #525252;
             --white: #ffffff;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--secondary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background: var(--white);
-        }
-
-        /* Language Switcher */
-        .lang-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            gap: 0.5rem;
-            background: var(--white);
-            padding: 0.5rem;
-            border-radius: 50px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .lang-btn {
-            padding: 0.5rem 1rem;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            font-weight: 500;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .lang-btn.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--gray-100) 0%, var(--white) 50%, var(--gray-200) 100%);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text h1 {
-            font-family: 'Playfair Display', serif !important;
-            font-size: 3.5rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            line-height: 1.1;
-        }
-
-        .hero-text .subtitle {
-            font-family: 'Playfair Display', serif !important;
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-
-        .hero-text .tagline {
-            color: var(--gray-600);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            text-align: center;
-            padding: 1rem 1.5rem;
-            background: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border-bottom: 3px solid var(--accent);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--gray-600);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .hero-image {
-            position: relative;
-            align-self: start;
-        }
-
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            inset: -20px;
-            background: linear-gradient(135deg, var(--gray-600) 0%, var(--primary) 100%);
-            border-radius: 20px;
-            opacity: 0.15;
-            filter: blur(40px);
-        }
-
-        .image-container {
-            background: var(--gray-100);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            position: relative;
-            line-height: 0;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            background: var(--gray-100);
-            object-fit: contain;
-            object-position: top center;
-        }
-
-        .contact-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.75rem;
-            background: var(--primary);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .contact-btn:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        .contact-btn.secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--gray-200);
-        }
-
-        .contact-btn.secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: transparent;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--gray-600);
-            font-size: 1.125rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .accent-line {
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        /* Expertise Cards Section */
-        .expertise-cards {
-            background: var(--gray-100);
-            padding: 4rem 2rem;
-        }
-
-        .expertise-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
-            background: var(--white);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .expertise-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
-        }
-
-        .expertise-card:nth-child(even) {
-            direction: rtl;
-        }
-
-        .expertise-card:nth-child(even) .expertise-text {
-            direction: ltr;
-        }
-
-        .expertise-image {
-            min-height: 400px;
-            overflow: hidden;
-        }
-
-        .expertise-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .expertise-card:hover .expertise-image img {
-            transform: scale(1.03);
-        }
-
-        .expertise-text {
-            padding: 3rem;
-        }
-
-        .expertise-text h3 {
-            font-size: 1.75rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .expertise-text p {
-            font-size: 1.125rem;
-            line-height: 1.7;
-            color: var(--secondary);
-        }
-
-        /* Experience Section */
-        .experience {
-            background: var(--white);
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--gray-600), var(--primary));
-        }
-
-        .timeline-item {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            grid-column: 2;
-        }
-
-        .timeline-item:nth-child(even) .timeline-date {
-            grid-column: 1;
-            text-align: right;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 16px;
-            height: 16px;
-            background: var(--accent);
-            border: 4px solid var(--white);
-            border-radius: 50%;
-            box-shadow: 0 0 0 4px var(--gray-300);
-        }
-
-        .timeline-date {
-            font-weight: 600;
-            color: var(--accent);
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .timeline-content {
-            background: var(--gray-50);
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--gray-200);
-        }
-
-        .timeline-content h3 {
-            font-size: 1.25rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .company {
-            color: var(--gray-600);
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .project-list {
-            list-style: none;
-        }
-
-        .project-list li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--gray-200);
-            display: flex;
-            align-items: start;
-            gap: 0.75rem;
-        }
-
-        .project-list li:last-child {
-            border-bottom: none;
-        }
-
-        .project-list i {
-            color: var(--accent);
-            margin-top: 0.25rem;
-            flex-shrink: 0;
-        }
-
-        /* Competencies Section */
-        .competencies {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .competencies .section-header h2 {
-            color: var(--white);
-            padding-right: 10px;
-            padding-left: 10px;
-        }
-
-        .competencies .section-header p {
-            color: var(--gray-300);
-        }
-
-        .comp-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .comp-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .comp-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
-            border-color: var(--gray-300);
-        }
-
-        .comp-card i {
-            width: 48px;
-            height: 48px;
-            background: var(--gray-300);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .comp-card h3 {
-            font-size: 1.125rem;
-            margin-bottom: 0.75rem;
-            color: var(--white);
-        }
-
-        .comp-card p {
-            font-size: 0.875rem;
-            color: var(--gray-300);
-            line-height: 1.6;
-        }
-
-        /* International Section */
-        .international {
-            background: var(--white);
-        }
-
-        .intl-split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .intl-content h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .intl-content p {
-            color: var(--gray-600);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .intl-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        .intl-card {
-            background: var(--gray-50);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 3px solid var(--accent);
-            transition: all 0.3s ease;
-        }
-
-        .intl-card:hover {
-            background: var(--gray-100);
-            transform: translateX(5px);
-        }
-
-        .intl-card h4 {
-            font-size: 0.875rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .intl-card p {
-            font-size: 0.8rem;
-            color: var(--gray-600);
-            margin: 0;
-        }
-
-        .intl-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            aspect-ratio: 4/3;
-        }
-
-        .intl-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .intl-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        /* Education Section */
-        .education {
-            background: var(--gray-100);
-        }
-
-        .edu-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .edu-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 16px;
-            border-top: 4px solid var(--accent);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .edu-card:hover {
-            transform: translateY(-5px);
-            border-top-color: var(--primary);
-        }
-
-        .edu-card .degree {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .edu-card h3 {
-            font-size: 1.125rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .edu-card .school {
-            color: var(--gray-600);
-            font-size: 0.875rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .edu-card .detail {
-            font-size: 0.875rem;
-            color: var(--secondary);
-            margin-top: 0.5rem;
-            padding-top: 0.5rem;
-            border-top: 1px solid var(--gray-200);
-        }
-
-        .edu-card .diss-link {
-            margin-top: 0.75rem;
-        }
-
-        .edu-card .diss-link a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .footer-contact {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-contact a {
-            color: var(--white);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            opacity: 0.8;
-        }
-
-        .footer-contact a:hover {
-            opacity: 1;
-            color: var(--gray-300);
-        }
-
-        /* Language-specific visibility */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--secondary); line-height: 1.6; background: var(--white); }
+        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; gap: 0.5rem; background: var(--white); padding: 0.5rem; border-radius: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .lang-btn { padding: 0.5rem 1rem; border: none; background: transparent; cursor: pointer; font-weight: 500; border-radius: 30px; }
+        .lang-btn.active { background: var(--primary); color: white; }
+        .hero { min-height: 100vh; background: linear-gradient(135deg, var(--gray-100) 0%, var(--white) 50%, var(--gray-200) 100%); display: flex; align-items: center; }
+        .hero-content { max-width: 1200px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .hero-text .subtitle { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--accent); margin-bottom: 1.5rem; }
+        .hero-text .tagline { color: var(--gray-600); font-size: 1.1rem; margin-bottom: 2rem; max-width: 500px; }
+        .hero-stats { display: flex; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .stat { text-align: center; padding: 1rem 1.5rem; background: var(--white); border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-bottom: 3px solid var(--accent); }
+        .stat-number { font-size: 2rem; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 0.75rem; color: var(--gray-600); text-transform: uppercase; }
+        .hero-image { position: relative; }
+        .hero-image::before { content: ''; position: absolute; inset: -20px; background: linear-gradient(135deg, var(--gray-600) 0%, var(--primary) 100%); border-radius: 20px; opacity: 0.15; filter: blur(40px); }
+        .image-container { background: var(--gray-100); border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
+        .image-container img { width: 100%; height: auto; display: block; }
+        .contact-bar { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .contact-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.75rem; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: 500; }
+        .contact-btn:hover { background: var(--accent); transform: translateY(-2px); }
+        .contact-btn.secondary { background: transparent; color: var(--primary); border: 2px solid var(--gray-200); }
+        section { padding: 5rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+        .section-header p { color: var(--gray-600); font-size: 1.125rem; max-width: 600px; margin: 0 auto; }
+        .accent-line { width: 60px; height: 4px; background: var(--accent); margin: 1rem auto; border-radius: 2px; }
+        .expertise-cards { background: var(--gray-100); padding: 4rem 2rem; }
+        .expertise-card { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem; background: var(--white); border-radius: 24px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
+        .expertise-card:hover { transform: translateY(-5px); }
+        .expertise-card:nth-child(even) { direction: rtl; }
+        .expertise-card:nth-child(even) .expertise-text { direction: ltr; }
+        .expertise-image { min-height: 400px; overflow: hidden; }
+        .expertise-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .expertise-card:hover .expertise-image img { transform: scale(1.03); }
+        .expertise-text { padding: 3rem; }
+        .expertise-text h3 { font-size: 1.75rem; color: var(--primary); margin-bottom: 1.5rem; font-family: 'Playfair Display', serif; }
+        .expertise-text p { font-size: 1.125rem; line-height: 1.7; color: var(--secondary); }
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(to bottom, var(--gray-600), var(--primary)); }
+        .timeline-item { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; position: relative; }
+        .timeline-item:nth-child(even) .timeline-content { grid-column: 2; }
+        .timeline-item:nth-child(even) .timeline-date { grid-column: 1; text-align: right; }
+        .timeline-dot { position: absolute; left: 50%; transform: translateX(-50%); width: 16px; height: 16px; background: var(--accent); border: 4px solid var(--white); border-radius: 50%; box-shadow: 0 0 0 4px var(--gray-300); }
+        .timeline-date { font-weight: 600; color: var(--accent); font-size: 0.875rem; text-transform: uppercase; }
+        .timeline-content { background: var(--gray-50); padding: 2rem; border-radius: 16px; border: 1px solid var(--gray-200); }
+        .timeline-content h3 { font-size: 1.25rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .timeline-content .company { color: var(--gray-600); font-size: 0.875rem; margin-bottom: 1rem; }
+        .project-list { list-style: none; }
+        .project-list li { padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200); display: flex; gap: 0.75rem; align-items: start; }
+        .project-list i { color: var(--accent); margin-top: 0.25rem; flex-shrink: 0; }
+        .competencies { background: var(--primary); color: white; }
+        .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .comp-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 2rem; border-radius: 16px; transition: all 0.3s ease; }
+        .comp-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); }
+        .comp-card i { width: 48px; height: 48px; background: var(--gray-300); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: var(--primary); }
+        .comp-card h3 { font-size: 1.125rem; margin-bottom: 0.75rem; color: white; }
+        .comp-card p { font-size: 0.875rem; color: var(--gray-300); }
+        .international { background: var(--white); }
+        .intl-split { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .intl-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .intl-card { background: var(--gray-50); padding: 1.5rem; border-radius: 12px; border-left: 3px solid var(--accent); }
+        .intl-image { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4/3; }
+        .intl-image img { width: 100%; height: 100%; object-fit: cover; }
+        .intl-badge { position: absolute; top: 20px; right: 20px; background: var(--accent); color: white; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.875rem; }
+        .education { background: var(--gray-100); }
+        .edu-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .edu-card { background: white; padding: 2rem; border-radius: 16px; border-top: 4px solid var(--accent); }
+        .edu-card .degree { font-size: 0.75rem; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; }
+        .edu-card h3 { font-size: 1.125rem; color: var(--primary); margin-bottom: 0.5rem; }
+        footer { background: var(--primary); color: white; padding: 3rem 2rem; text-align: center; }
+        .footer-contact { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .footer-contact a { color: white; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; opacity: 0.8; }
         .lang-ru { display: block; }
         .lang-en { display: none; }
         body.lang-english .lang-ru { display: none; }
         body.lang-english .lang-en { display: block; }
-
-        /* Responsive */
         @media (max-width: 968px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: left;
-            }
+            .hero-content { grid-template-columns: 1fr; text-align: left; }
             .hero-text h1 { font-size: 2.5rem; }
-            .hero-text .tagline { text-align: left; }
-            .hero-stats { justify-content: flex-start; }
-            
-            .hero-image {
-                order: -1;
-                margin-bottom: 2rem;
-            }
-            
             .comp-grid, .edu-cards, .intl-split { grid-template-columns: 1fr; }
             .expertise-card { grid-template-columns: 1fr; gap: 0; }
             .expertise-card:nth-child(even) { direction: ltr; }
@@ -684,30 +109,6 @@
             .timeline-item:nth-child(even) .timeline-content,
             .timeline-item:nth-child(even) .timeline-date { grid-column: 1; text-align: left; }
             .timeline-dot { left: 0; transform: translateX(-50%); }
-            
-            .hero-text {
-                text-align: left;
-            }
-            .hero-text .subtitle {
-                text-align: left;
-            }
-            .hero-text .tagline {
-                text-align: left;
-                margin-left: 0;
-            }
-            .hero-stats {
-                justify-content: flex-start;
-            }
-            .contact-bar {
-                justify-content: flex-start;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero-text h1 { font-size: 2rem; }
-            .contact-bar { justify-content: flex-start; }
-            .intl-grid { grid-template-columns: 1fr; }
-            .expertise-text h3 { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -726,13 +127,11 @@
                 <p class="subtitle lang-en">Head of Product</p>
                 <p class="tagline lang-ru">Кандидат наук с 25+ летним стажем в биотехнологиях. Полный жизненный цикл продукта: от разработки до международной сертификации и масштабирования бизнеса.</p>
                 <p class="tagline lang-en">PhD with 25+ years of experience in biotechnology. Full product lifecycle: from development to international certification and business scaling.</p>
-                
                 <div class="hero-stats">
                     <div class="stat"><span class="stat-number">25+</span><span class="stat-label lang-ru">лет опыта</span><span class="stat-label lang-en">years exp.</span></div>
                     <div class="stat"><span class="stat-number">PhD</span><span class="stat-label lang-ru">кандидат наук</span><span class="stat-label lang-en">PhD degree</span></div>
                     <div class="stat"><span class="stat-number">3</span><span class="stat-label lang-ru">языка</span><span class="stat-label lang-en">languages</span></div>
                 </div>
-
                 <div class="contact-bar">
                     <a href="https://wa.me/79217900603" target="_blank" class="contact-btn"><i data-lucide="message-circle"></i> WhatsApp</a>
                     <a href="mailto:konstantlab@gmail.com" class="contact-btn secondary"><i data-lucide="mail"></i> Email</a>
@@ -757,9 +156,9 @@
                 <p class="lang-en">Product development, raw material sourcing, and manufacturing processes</p>
             </div>
         </div>
-        <!-- Блок 1: Соавтор рецептур травяных сборов и эликсиров -->
+        <!-- Блок 1: Kaigorodov.png (с большой буквы K) -->
         <div class="expertise-card scroll-reveal">
-            <div class="expertise-image"><img src="kaigorodov.png" alt="Травники Кайгородовы"></div>
+            <div class="expertise-image"><img src="Kaigorodov.png?raw=true" alt="Травники Кайгородовы" onerror="this.src='https://placehold.co/600x400/e2e8f0/475569?text=Kaigorodov+Herbs'"></div>
             <div class="expertise-text">
                 <h3 class="lang-ru">Соавтор рецептур линейки травяных сборов и эликсиров</h3>
                 <h3 class="lang-en">Co-author of herbal blends and elixirs formulations</h3>
@@ -767,13 +166,13 @@
                 <p class="lang-en">Gastric, renal, vascular, "Male Power", antiviral and other proprietary blends. Full cycle: concept → raw material sourcing → technology → packaging → production.</p>
             </div>
         </div>
-        <!-- Блок 2: Опыт в пчеловодстве и создание собственной линейки продуктов -->
+        <!-- Блок 2: Vax-cosmetic.jpg -->
         <div class="expertise-card scroll-reveal">
-            <div class="expertise-image"><img src="vax-cosmetic.png" alt="Пчеловодство и собственная линейка"></div>
+            <div class="expertise-image"><img src="Vax-cosmetic.jpg?raw=true" alt="Пчеловодство и собственная линейка" onerror="this.src='https://placehold.co/600x400/e2e8f0/475569?text=Vax+Cosmetic'"></div>
             <div class="expertise-text">
                 <h3 class="lang-ru">Опыт в пчеловодстве и создание собственной линейки продуктов</h3>
                 <h3 class="lang-en">Beekeeping experience and own product line development</h3>
-                <p class="lang-ru">Разработка 15+ SKU БАД и уходовой косметики: порошки на основе ТКМ, мази на пчелином воске, масла, сборы. Полный цикл от формулы до продаж.</p>
+                <p class="lang-ru">Разработка 15+ SKU БАД и уходовой косметики: порошки на основе ТКМ, мази на основе пчелиного воска и маточного молочка, масла, сборы. Полный цикл от формулы до продаж.</p>
                 <p class="lang-en">Development of 15+ SKU of dietary supplements and natural cosmetics: TCM-based powders, beeswax ointments, oils, blends. Full cycle from formula to sales.</p>
             </div>
         </div>
@@ -797,9 +196,9 @@
                         <h3 class="lang-en">Chief Science Officer</h3>
                         <p class="company">JSC «Vector-Best-Baltika»</p>
                         <ul class="project-list">
-                            <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Технологический трансфер триглицеридов</strong><strong class="lang-en">Triglycerides Technology Transfer</strong><br><span class="lang-ru">Организовал передачу технологии от европейского партнёра</span><span class="lang-en">Technology transfer from a European partner</span></div></li>
-                            <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Набор для определения витамина D (ELISA/CLIA)</strong><strong class="lang-en">Vitamin D Assay Kit (ELISA/CLIA)</strong><br><span class="lang-ru">Полный цикл: подбор антител, оптимизация формата</span><span class="lang-en">Full cycle: antibody selection, format optimization</span></div></li>
-                            <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Блокирующие реагенты для конкурентного ИФА</strong><strong class="lang-en">Blocking Reagents for Competitive ELISA</strong><br><span class="lang-ru">Снижение неспецифических взаимодействий</span><span class="lang-en">Non-specific interactions elimination</span></div></li>
+                            <li><i data-lucide="check-circle"></i><div><strong>Технологический трансфер триглицеридов</strong><br><span class="lang-ru">Организовал передачу технологии от европейского партнёра</span><span class="lang-en">Technology transfer from a European partner</span></div></li>
+                            <li><i data-lucide="check-circle"></i><div><strong>Набор для определения витамина D (ELISA/CLIA)</strong><br><span class="lang-ru">Полный цикл: подбор антител, оптимизация формата</span><span class="lang-en">Full cycle: antibody selection, format optimization</span></div></li>
+                            <li><i data-lucide="check-circle"></i><div><strong>Блокирующие реагенты для конкурентного ИФА</strong><br><span class="lang-ru">Снижение неспецифических взаимодействий</span><span class="lang-en">Non-specific interactions elimination</span></div></li>
                             <li><i data-lucide="check-circle"></i><div><strong>Ultima 200 & ORIENTER FA280</strong><br><span class="lang-ru">Интеграция китайских анализаторов</span><span class="lang-en">Integration of Chinese analyzers</span></div></li>
                             <li><i data-lucide="check-circle"></i><div><strong>RealFly & RbMag</strong><br><span class="lang-ru">Полностью российская разработка от R&D до серийного производства</span><span class="lang-en">Full domestic development from R&D to serial production</span></div></li>
                         </ul>
@@ -828,8 +227,8 @@
                         <h3 class="lang-en">Founder / Developer (Sole Proprietor)</h3>
                         <p class="company">Medragon (medragon.tilda.ws/bee)</p>
                         <ul class="project-list">
-                            <li><i data-lucide="droplets"></i><div><span class="lang-ru">Разработал 15+ SKU БАД и уходовой косметики: порошки на основе ТКМ, мази на пчелином воске, масла, сборы.</span><span class="lang-en">Developed 15+ SKU of dietary supplements and natural cosmetics: TCM-based powders, beeswax ointments, oils, blends.</span></div></li>
-                            <li><i data-lucide="zap"></i><div><span class="lang-ru">Полный цикл: формула → закуп сырья → ручное производство → упаковка → продажи.</span><span class="lang-en">Full cycle: formula → raw material procurement → manual production → packaging → sales.</span></div></li>
+                            <li><i data-lucide="droplets"></i><div><span class="lang-ru">Разработал 15+ SKU БАД и уходовой косметики: порошки на основе ТКМ, мази на основе пчелиного воска и маточного молочка, масла, сборы.</span><span class="lang-en">Developed 15+ SKU of dietary supplements and natural cosmetics: TCM-based powders, beeswax ointments, oils, blends.</span></div></li>
+                            <li><i data-lucide="zap"></i><div><span class="lang-ru">Полный цикл: формула → закупка сырья → ручное производство → упаковка → продажи.</span><span class="lang-en">Full cycle: formula → raw material procurement → manual production → packaging → sales.</span></div></li>
                             <li><i data-lucide="dollar-sign"></i><div><span class="lang-ru">Управление unit-экономикой: себестоимость, маржинальность, розничная цена.</span><span class="lang-en">Unit-economics management: cost price, margin, retail price.</span></div></li>
                         </ul>
                     </div>
@@ -968,7 +367,6 @@
 
     <script>
         lucide.createIcons();
-        
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const lang = btn.dataset.lang;
@@ -978,12 +376,6 @@
                 document.body.classList.toggle('lang-russian', lang === 'ru');
             });
         });
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
-        document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('revealed'));
     </script>
 </body>
 </html>
