@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Константин Бахарев | Руководитель Отдела исследований</title>
+
+    <!-- Open Graph / Social Media Preview (обновлено под новую роль) -->
+    <meta property="og:title" content="Константин Бахарев | Руководитель Отдела исследований">
+    <meta property="og:description" content="PhD, 25+ лет опыта в технологических исследованиях, управлении аналитикой и R&D. Экспертиза: рынки, стартапы, венчур, CX, ИИ, удалённое управление командами.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/KonstantinMedragon/CVBakharev/main/2.jpg">
+    <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/KonstantinMedragon/CVBakharev/main/2.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://konstantinmedragon.github.io/CVBakharev/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Константин Бахарев | Руководитель Отдела исследований">
+    <meta name="twitter:description" content="PhD, 25+ лет в технологических исследованиях и управлении аналитикой.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/KonstantinMedragon/CVBakharev/main/2.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #111111;
+            --secondary: #2c2c2c;
+            --accent: #3a3a3a;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-600: #525252;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--gray-100) 0%, var(--white) 50%, var(--gray-200) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-text .subtitle {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-text .tagline {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1rem 1.5rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-image {
+            position: relative;
+            align-self: start;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: linear-gradient(135deg, var(--gray-600) 0%, var(--primary) 100%);
+            border-radius: 20px;
+            opacity: 0.15;
+            filter: blur(40px);
+        }
+
+        .image-container {
+            background: var(--gray-100);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            line-height: 0;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: var(--gray-100);
+            object-fit: contain;
+            object-position: top center;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .contact-btn.secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--gray-200);
+        }
+
+        .contact-btn.secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: transparent;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Expertise Cards Section */
+        .expertise-cards {
+            background: var(--gray-100);
+            padding: 4rem 2rem;
+        }
+
+        .expertise-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .expertise-card:nth-child(even) {
+            direction: rtl;
+        }
+
+        .expertise-card:nth-child(even) .expertise-text {
+            direction: ltr;
+        }
+
+        .expertise-image {
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .expertise-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .expertise-card:hover .expertise-image img {
+            transform: scale(1.03);
+        }
+
+        .expertise-text {
+            padding: 3rem;
+        }
+
+        .expertise-text h3 {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .expertise-text p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--secondary);
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--white);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gray-600), var(--primary));
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 2;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            grid-column: 1;
+            text-align: right;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--gray-300);
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-content {
+            background: var(--gray-50);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gray-200);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .company {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .project-list {
+            list-style: none;
+        }
+
+        .project-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+        }
+
+        .project-list li:last-child {
+            border-bottom: none;
+        }
+
+        .project-list i {
+            color: var(--accent);
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        /* Competencies Section */
+        .competencies {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .competencies .section-header h2 {
+            color: var(--white);
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
+        .competencies .section-header p {
+            color: var(--gray-300);
+        }
+
+        .comp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .comp-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .comp-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--gray-300);
+        }
+
+        .comp-card i {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-300);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .comp-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            color: var(--white);
+        }
+
+        .comp-card p {
+            font-size: 0.875rem;
+            color: var(--gray-300);
+            line-height: 1.6;
+        }
+
+        /* International Section */
+        .international {
+            background: var(--white);
+        }
+
+        .intl-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .intl-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .intl-content p {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .intl-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .intl-card {
+            background: var(--gray-50);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 3px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .intl-card:hover {
+            background: var(--gray-100);
+            transform: translateX(5px);
+        }
+
+        .intl-card h4 {
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .intl-card p {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        .intl-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            aspect-ratio: 4/3;
+        }
+
+        .intl-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .intl-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Education Section */
+        .education {
+            background: var(--gray-100);
+        }
+
+        .edu-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .edu-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--primary);
+        }
+
+        .edu-card .degree {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card h3 {
+            font-size: 1.125rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card .school {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card .detail {
+            font-size: 0.875rem;
+            color: var(--secondary);
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .edu-card .diss-link {
+            margin-top: 0.75rem;
+        }
+
+        .edu-card .diss-link a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-contact a:hover {
+            opacity: 1;
+            color: var(--gray-300);
+        }
+
+        /* Language-specific visibility */
+        .lang-ru { display: block; }
+        .lang-en { display: none; }
+        body.lang-english .lang-ru { display: none; }
+        body.lang-english .lang-en { display: block; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text .tagline { text-align: left; }
+            .hero-stats { justify-content: flex-start; }
+            
+            .hero-image {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+            
+            .comp-grid, .edu-cards, .intl-split { grid-template-columns: 1fr; }
+            .expertise-card { grid-template-columns: 1fr; gap: 0; }
+            .expertise-card:nth-child(even) { direction: ltr; }
+            .expertise-text { padding: 2rem; order: 2; }
+            .expertise-image { min-height: 300px; order: 1; }
+            .timeline::before { left: 0; }
+            .timeline-item { grid-template-columns: 1fr; padding-left: 2rem; }
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-date { grid-column: 1; text-align: left; }
+            .timeline-dot { left: 0; transform: translateX(-50%); }
+            
+            .hero-text {
+                text-align: left;
+            }
+            .hero-text .subtitle {
+                text-align: left;
+            }
+            .hero-text .tagline {
+                text-align: left;
+                margin-left: 0;
+            }
+            .hero-stats {
+                justify-content: flex-start;
+            }
+            .contact-bar {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-text h1 { font-size: 2rem; }
+            .contact-bar { justify-content: flex-start; }
+            .intl-grid { grid-template-columns: 1fr; }
+            .expertise-text h3 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body class="lang-russian">
+    <div class="lang-switch">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="lang-ru">Константин<br>Бахарев</h1>
+                <h1 class="lang-en">Konstantin<br>Bakharev</h1>
+                <p class="subtitle lang-ru">Руководитель Отдела исследований</p>
+                <p class="subtitle lang-en">Head of Research Department</p>
+                <p class="tagline lang-ru">Кандидат наук с 25+ летним опытом в технологических исследованиях, управлении аналитикой и R&D. Руководство командами, рыночная аналитика, венчурные исследования, конкурентный анализ, CX, ИИ и автоматизация. Полностью удалённая работа.</p>
+                <p class="tagline lang-en">PhD with 25+ years of experience in technology research, analytics management, and R&D. Team leadership, market research, venture analysis, competitive intelligence, CX, AI & automation. Fully remote.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat"><span class="stat-number">25+</span><span class="stat-label lang-ru">лет опыта</span><span class="stat-label lang-en">years exp.</span></div>
+                    <div class="stat"><span class="stat-number">PhD</span><span class="stat-label lang-ru">кандидат наук</span><span class="stat-label lang-en">PhD degree</span></div>
+                    <div class="stat"><span class="stat-number">3</span><span class="stat-label lang-ru">языка</span><span class="stat-label lang-en">languages</span></div>
+                </div>
+
+                <div class="contact-bar">
+                    <a href="https://wa.me/79217900603" target="_blank" class="contact-btn"><i data-lucide="message-circle"></i> WhatsApp</a>
+                    <a href="mailto:konstantlab@gmail.com" class="contact-btn secondary"><i data-lucide="mail"></i> Email</a>
+                    <a href="https://linkedin.com/in/drbakharev" target="_blank" class="contact-btn secondary"><i data-lucide="linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/KonstantinMedragon/CVBakharev/cd12ac477bf30e2ddda586f66e6690547657ee19/1.png" alt="Константин Бахарев">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expertise-cards">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="lang-ru">Ключевые исследовательские компетенции</h2>
+                <h2 class="lang-en">Core Research Competencies</h2>
+                <div class="accent-line"></div>
+                <p class="lang-ru">Рыночная аналитика, технологический скаутинг, управление командой и цифровая трансформация исследований</p>
+                <p class="lang-en">Market analytics, tech scouting, team management and digital transformation of research</p>
+            </div>
+        </div>
+        <div class="expertise-card scroll-reveal">
+            <div class="expertise-image"><img src="block1.jpg" alt="Market Research"></div>
+            <div class="expertise-text"><h3 class="lang-ru">Исследования рынков и конкурентный анализ</h3><h3 class="lang-en">Market Research & Competitive Analysis</h3><p class="lang-ru">Глубинный анализ технологических рынков, бенчмаркинг, конкурентная разведка, CX-исследования цифровых сервисов. Опыт работы с базами Crunchbase, Pitchbook, Scopus.</p><p class="lang-en">In-depth tech market analysis, benchmarking, competitive intelligence, CX research for digital services. Experience with Crunchbase, Pitchbook, Scopus.</p></div>
+        </div>
+        <div class="expertise-card scroll-reveal">
+            <div class="expertise-image"><img src="block2.jpg" alt="Tech Scouting"></div>
+            <div class="expertise-text"><h3 class="lang-ru">Технологический скаутинг и венчурная аналитика</h3><h3 class="lang-en">Tech Scouting & Venture Analytics</h3><p class="lang-ru">Поиск стартапов и инновационных решений, анализ венчурных сделок, подготовка публичных исследований венчурного рынка. Собственная база контактов 100K+ стартапов Евразии.</p><p class="lang-en">Startup scouting, venture deal analysis, preparation of public venture market research. Own database of 100K+ Eurasian startups.</p></div>
+        </div>
+        <div class="expertise-card scroll-reveal">
+            <div class="expertise-image"><img src="block3.jpg" alt="AI & Automation"></div>
+            <div class="expertise-text"><h3 class="lang-ru">ИИ и автоматизация аналитики</h3><h3 class="lang-en">AI & Analytics Automation</h3><p class="lang-ru">Внедрение LLM (ChatGPT, Midjourney) в исследовательские процессы, автоматизация сбора и обработки данных, создание дашбордов. Вайб-кодинг для ускорения работы аналитиков.</p><p class="lang-en">LLM integration (ChatGPT, Midjourney) into research workflows, automated data collection and processing, dashboard creation. Vibe coding to speed up analysts.</p></div>
+        </div>
+        <div class="expertise-card scroll-reveal">
+            <div class="expertise-image"><img src="block4.jpg" alt="Team Leadership"></div>
+            <div class="expertise-text"><h3 class="lang-ru">Управление исследовательским отделом</h3><h3 class="lang-en">Research Department Management</h3><p class="lang-ru">Руководство командой аналитиков (найм, ассессмент, карьерные треки). Контроль качества отчётов, сторителлинг, презентации клиентам. Пресейлы, бюджетирование, ценообразование новых исследовательских продуктов.</p><p class="lang-en">Leading analytics teams (hiring, assessment, career paths). Quality control of reports, storytelling, client presentations. Presales, budgeting, pricing of new research products.</p></div>
+        </div>
+    </section>
+
+    <section class="experience">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="lang-ru">Опыт исследовательских проектов</h2>
+                <h2 class="lang-en">Research Project Experience</h2>
+                <div class="accent-line"></div>
+                <p class="lang-ru">Ключевые проекты в области рыночной аналитики, скаутинга и управления исследованиями</p>
+                <p class="lang-en">Key projects in market analytics, scouting and research management</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-date">2003 — present</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="lang-ru">Заместитель генерального директора по научной работе / Руководитель исследовательского направления</h3>
+                        <h3 class="lang-en">Deputy CEO for Research / Head of Research</h3>
+                        <p class="company">JSC «Vector-Best-Baltika» + собственные исследовательские инициативы</p>
+                        <ul class="project-list">
+                            <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Исследования технологических рынков</strong><strong class="lang-en">Technology Market Research</strong><br><span class="lang-ru">Анализ глобальных рынков диагностики, трендов, конкурентов. Подготовка отчётов для C-level.</span><span class="lang-en">Global diagnostics market analysis, trends, competitors. C-level reports.</span></div></li>
+                            <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Технологический скаутинг и бенчмаркинг</strong><strong class="lang-en">Tech Scouting & Benchmarking</strong><br><span class="lang-ru">Отбор 12+ стартапов и производителей в ЕС и Азии, сравнительный анализ решений, 3 технологии выведены на рынок.</span><span class="lang-en">Selected 12+ startups in EU/Asia, benchmarking, 3 technologies brought to market.</span></div></li>
+                            <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Управление исследовательской командой</strong><strong class="lang-en">Research Team Management</strong><br><span class="lang-ru">Руководство 8–12 аналитиками и внештатными экспертами (удалённо с 2022), KPI, ассессмент, найм.</span><span class="lang-en">Leading 8–12 analysts + freelancers (remote since 2022), KPIs, assessment, hiring.</span></div></li>
+                            <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Внедрение ИИ в аналитику</strong><strong class="lang-en">AI Implementation</strong><br><span class="lang-ru">Автоматизация обработки рыночных данных через ChatGPT API, сокращение ручного труда на 10+ часов в неделю.</span><span class="lang-en">Automated market data processing via ChatGPT API, saved 10+ hours/week.</span></div></li>
+                            <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Пресейлы и бюджетирование</strong><strong class="lang-en">Presales & Budgeting</strong><br><span class="lang-ru">Коммерческие предложения, расчёт маржинальности, обоснование методологии, контракты на 2+ года.</span><span class="lang-en">Commercial proposals, margin calculation, methodology justification, 2+ year contracts.</span></div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-date">2022 — present</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="lang-ru">Основатель аналитического / digital-проекта</h3>
+                        <h3 class="lang-en">Founder, Analytics & Digital Project</h3>
+                        <p class="company">skycode.codes</p>
+                        <ul class="project-list">
+                            <li><i data-lucide="globe"></i><div><span class="lang-ru">Создание сайта-портфолио с нуля: исследование ниши, UX/UI, контент, SEO, вёрстка на Tilda + собственный код.</span><span class="lang-en">Full-cycle website creation: niche research, UX/UI, content, SEO, Tilda + custom code.</span></div></li>
+                            <li><i data-lucide="bar-chart"></i><div><span class="lang-ru">Разработка автоматизированных парсеров для сбора рыночной информации и мониторинга конкурентов.</span><span class="lang-en">Developed automated scrapers for market data collection and competitor monitoring.</span></div></li>
+                            <li><i data-lucide="users"></i><div><span class="lang-ru">Удалённое управление распределённой командой (копирайтеры, разработчики, SEO-специалисты).</span><span class="lang-en">Remote management of distributed team (copywriters, developers, SEO).</span></div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-date">2018 — 2020</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="lang-ru">Постдокторант (исследовательская стипендия)</h3>
+                        <h3 class="lang-en">Postdoctoral Researcher</h3>
+                        <p class="company">All-Russian Institute of Plant Protection</p>
+                        <ul class="project-list">
+                            <li><i data-lucide="microscope"></i><div><span class="lang-ru">Исследование сложных систем: сбор и анализ многомерных данных, статистическая обработка, визуализация.</span><span class="lang-en">Complex systems research: multivariate data collection, statistical analysis, visualization.</span></div></li>
+                            <li><i data-lucide="users"></i><div><span class="lang-ru">Управление проектом с нулевым бюджетом и распределённой командой (полевые исследователи, аналитики).</span><span class="lang-en">Managed a project with zero budget and distributed team (field researchers, analysts).</span></div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-date">2000 — 2003</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="lang-ru">Руководитель аналитической лаборатории</h3>
+                        <h3 class="lang-en">Analytical Lab Director</h3>
+                        <p class="company">Alkor Bio Group</p>
+                        <ul class="project-list">
+                            <li><i data-lucide="flask-conical"></i><div><span class="lang-ru">Постановка системы контроля качества аналитических данных, внедрение KPI для персонала.</span><span class="lang-en">Implemented quality control system for analytical data, staff KPIs.</span></div></li>
+                            <li><i data-lucide="droplets"></i><div><span class="lang-ru">Разработка методологии пробоподготовки и стандартизации протоколов для повторяемости результатов.</span><span class="lang-en">Developed sample prep methodology and standardized protocols for reproducibility.</span></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="competencies">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="lang-ru">Исследовательские компетенции</h2>
+                <h2 class="lang-en">Research Competencies</h2>
+                <div class="accent-line" style="background: var(--gray-300);"></div>
+                <p class="lang-ru">Навыки для руководства отделом исследований и аналитики</p>
+                <p class="lang-en">Skills for heading a research & analytics department</p>
+            </div>
+            <div class="comp-grid">
+                <div class="comp-card scroll-reveal"><i data-lucide="trending-up"></i><h3 class="lang-ru">Рыночные исследования</h3><h3 class="lang-en">Market Research</h3><p class="lang-ru">TAM/SAM/SOM, Porter, PEST, анализ конкурентной среды, бенчмаркинг, CX-исследования.</p><p class="lang-en">TAM/SAM/SOM, Porter, PEST, competitive landscape, benchmarking, CX research.</p></div>
+                <div class="comp-card scroll-reveal"><i data-lucide="database"></i><h3 class="lang-ru">Работа с базами данных</h3><h3 class="lang-en">Database Expertise</h3><p class="lang-ru">Crunchbase, Pitchbook, Dealroom, Scopus, а также собственные базы стартапов (100K+ компаний).</p><p class="lang-en">Crunchbase, Pitchbook, Dealroom, Scopus, plus proprietary startup databases (100K+ companies).</p></div>
+                <div class="comp-card scroll-reveal"><i data-lucide="cpu"></i><h3 class="lang-ru">Автоматизация и ИИ</h3><h3 class="lang-en">AI & Automation</h3><p class="lang-ru">ChatGPT API, Midjourney, веб-парсинг, настройка пайплайнов для ускорения аналитики.</p><p class="lang-en">ChatGPT API, Midjourney, web scraping, pipeline setup to speed up analytics.</p></div>
+                <div class="comp-card scroll-reveal"><i data-lucide="bot"></i><h3 class="lang-ru">Управление командой</h3><h3 class="lang-en">Team Management</h3><p class="lang-ru">Найм, онбординг, ассессмент, KPI, карьерные планы, удалённое руководство, контроль качества.</p><p class="lang-en">Hiring, onboarding, assessment, KPIs, career paths, remote leadership, quality control.</p></div>
+                <div class="comp-card scroll-reveal"><i data-lucide="globe-2"></i><h3 class="lang-ru">Пресейлы и клиенты</h3><h3 class="lang-en">Presales & Clients</h3><p class="lang-ru">Брифинг, коммерческие предложения, бюджетирование, презентация C-level, отработка возражений.</p><p class="lang-en">Briefing, commercial proposals, budgeting, C-level presentations, objection handling.</p></div>
+                <div class="comp-card scroll-reveal"><i data-lucide="presentation"></i><h3 class="lang-ru">Визуализация и сторителлинг</h3><h3 class="lang-en">Storytelling & Viz</h3><p class="lang-ru">PowerPoint, Tilda, Figma (база), построение выводов под бизнес-цели, дизайн отчётов.</p><p class="lang-en">PowerPoint, Tilda, basic Figma, actionable insights, report design.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="international">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="lang-ru">Международный нетворкинг и рыночная аналитика</h2>
+                <h2 class="lang-en">International Networking & Market Intelligence</h2>
+                <div class="accent-line"></div>
+                <p class="lang-ru">Работа с глобальными рынками, стартапами и венчурными экосистемами</p>
+                <p class="lang-en">Working with global markets, startups and venture ecosystems</p>
+            </div>
+            <div class="intl-split">
+                <div class="intl-content scroll-reveal">
+                    <h3 class="lang-ru">Глобальный технологический скаутинг</h3>
+                    <h3 class="lang-en">Global Tech Scouting</h3>
+                    <p class="lang-ru">Опыт открытия и управления офисом в Сербии (2022), налаживание партнёрств с европейскими аналитическими центрами. Регулярное участие в международных конференциях (Medica, CMEF, Medlab Asia) для сбора рыночной информации. Свободный английский (носитель) и деловой китайский (HSK2).</p>
+                    <p class="lang-en">Experience opening and managing an office in Serbia (2022), establishing partnerships with European analytics hubs. Regular attendance at international conferences (Medica, CMEF, Medlab Asia) for market intelligence. Fluent English (native) and business Chinese (HSK2).</p>
+                    <div class="intl-grid">
+                        <div class="intl-card"><h4><i data-lucide="map-pin"></i> <span class="lang-ru">Европейский рынок</span><span class="lang-en">European Market</span></h4><p class="lang-ru">Офис в Сербии, партнёрства с ЕС, опыт работы с западными клиентами.</p><p class="lang-en">Office in Serbia, EU partnerships, experience with Western clients.</p></div>
+                        <div class="intl-card"><h4><i data-lucide="handshake"></i> <span class="lang-ru">Венчурное сообщество</span><span class="lang-en">Venture Community</span></h4><p class="lang-ru">Связи с венчурными фондами, акселераторами, база стартапов 100K+.</p><p class="lang-en">Connections with VC funds, accelerators, 100K+ startup database.</p></div>
+                        <div class="intl-card"><h4><i data-lucide="building-2"></i> <span class="lang-ru">Удалённое управление</span><span class="lang-en">Remote Management</span></h4><p class="lang-ru">База в Таиланде, полная готовность к работе в московском часовом поясе.</p><p class="lang-en">Based in Thailand, fully ready to work in Moscow time zone.</p></div>
+                        <div class="intl-card"><h4><i data-lucide="languages"></i> <span class="lang-ru">Языки</span><span class="lang-en">Languages</span></h4><p class="lang-ru">Английский (носитель), Китайский HSK2, Русский (родной).</p><p class="lang-en">English (native), Chinese HSK2, Russian (native).</p></div>
+                    </div>
+                </div>
+                <div class="intl-image scroll-reveal">
+                    <img src="https://raw.githubusercontent.com/KonstantinMedragon/CVBakharev/c04f872edc5d6e113d3543a6663538859264d2ea/pexels-pixabay-261621.jpg" alt="Global research network">
+                    <div class="intl-badge">Global Research Network</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="education">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="lang-ru">Образование и непрерывное развитие</h2>
+                <h2 class="lang-en">Education & Continuous Development</h2>
+                <div class="accent-line"></div>
+                <p class="lang-ru">Академический фундамент в области анализа данных и системных исследований</p>
+                <p class="lang-en">Academic foundation in data analysis and systems research</p>
+            </div>
+            <div class="edu-cards">
+                <div class="edu-card scroll-reveal">
+                    <div class="degree lang-ru">Кандидат наук (PhD)</div><div class="degree lang-en">PhD Degree</div>
+                    <h3 class="lang-ru">Информационные системы и процессы</h3><h3 class="lang-en">Information Systems and Processes</h3>
+                    <p class="school">Saint Petersburg University</p>
+                    <p class="detail">2007 — 2008 | <span class="lang-ru">Диплом с отличием</span><span class="lang-en">Honors degree</span></p>
+                    <div class="diss-link"><a href="https://www.dissercat.com/content/regionalnaya-informatsionnaya-sistema-monitoringa-obektov-vodozabora-i-vodoochistki" target="_blank">📄 <span class="lang-ru">Ссылка на диссертацию (системы мониторинга данных)</span><span class="lang-en">Thesis link (data monitoring systems)</span></a></div>
+                </div>
+                <div class="edu-card scroll-reveal"><div class="degree lang-ru">Магистр</div><div class="degree lang-en">Master's Degree</div><h3 class="lang-ru">Биохимия и молекулярная биология</h3><h3 class="lang-en">Biochemistry and Molecular Biology</h3><p class="school">Saint Petersburg State University</p><p class="detail">1999 — 2003 | <span class="lang-ru">Средний балл: 4.9/5.0</span><span class="lang-en">GPA: 4.9/5.0</span></p></div>
+                <div class="edu-card scroll-reveal"><div class="degree lang-ru">Специалитет</div><div class="degree lang-en">Specialist</div><h3 class="lang-ru">Аналитическая химия</h3><h3 class="lang-en">Analytical Chemistry</h3><p class="school">Mendeleev Chemical-Technological College</p><p class="detail">1997 — 1999 | <span class="lang-ru">Средний балл: 5.0/5.0</span><span class="lang-en">GPA: 5.0/5.0</span></p></div>
+            </div>
+            <div style="margin-top: 3rem; text-align: center;" class="scroll-reveal">
+                <h3 style="margin-bottom: 1.5rem; color: var(--primary);" class="lang-ru">Дополнительные навыки для руководителя исследований</h3>
+                <h3 style="margin-bottom: 1.5rem; color: var(--primary);" class="lang-en">Additional Skills for Research Head</h3>
+                <div style="display: inline-flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                    <div style="background: var(--white); padding: 1rem 2rem; border-radius: 50px; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+                        <i data-lucide="award" style="color: var(--accent);"></i>
+                        <span style="font-weight: 500;">Vinh Giang: <span class="lang-ru">ораторское мастерство, убеждение, работа с возражениями</span><span class="lang-en">public speaking, persuasion, objection handling</span></span>
+                    </div>
+                    <div style="background: var(--white); padding: 1rem 2rem; border-radius: 50px; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+                        <i data-lucide="code" style="color: var(--accent);"></i>
+                        <span style="font-weight: 500;">Web dev & SEO: Tilda, HTML/CSS/JS, <span class="lang-ru">базовая оптимизация</span><span class="lang-en">basic optimization</span></span>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; text-align: center; font-size: 0.8rem; color: var(--gray-600);">
+                <span class="lang-ru">✨ Полностью удалённая работа • Готов к московскому часовому поясу ✨</span>
+                <span class="lang-en">✨ Fully remote • Ready for Moscow time zone ✨</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">Konstantin Bakharev</h2>
+            <p style="margin-bottom: 2rem;">Head of Research Department | PhD | 25+ years in tech research & analytics</p>
+            <div class="footer-contact">
+                <a href="https://wa.me/79217900603" target="_blank"><i data-lucide="message-circle"></i> WhatsApp</a>
+                <a href="mailto:konstantlab@gmail.com"><i data-lucide="mail"></i> konstantlab@gmail.com</a>
+                <a href="https://linkedin.com/in/drbakharev" target="_blank"><i data-lucide="linkedin"></i> LinkedIn</a>
+            </div>
+            <p style="color: var(--gray-600); font-size: 0.875rem;">© 2024 • Based in Thailand • Fully remote • Working with global markets</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.dataset.lang;
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.body.classList.toggle('lang-english', lang === 'en');
+                document.body.classList.toggle('lang-russian', lang === 'ru');
+            });
+        });
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+        document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('revealed'));
+    </script>
+</body>
+</html>
