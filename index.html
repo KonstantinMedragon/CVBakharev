@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Константин Бахарев | Руководитель Отдела исследований</title>
 
-    <!-- Open Graph / Social Media Preview (обновлено под новую роль) -->
+    <!-- Open Graph / Social Media Preview -->
     <meta property="og:title" content="Константин Бахарев | Руководитель Отдела исследований">
-    <meta property="og:description" content="PhD, 25+ лет опыта в технологических исследованиях, управлении аналитикой и R&D. Экспертиза: рынки, стартапы, венчур, CX, ИИ, удалённое управление командами.">
+    <meta property="og:description" content="PhD, 25+ лет опыта в технологических исследованиях, управлении аналитикой и R&D.">
     <meta property="og:image" content="https://raw.githubusercontent.com/KonstantinMedragon/CVBakharev/main/2.jpg">
     <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/KonstantinMedragon/CVBakharev/main/2.jpg">
     <meta property="og:image:type" content="image/jpeg">
@@ -16,7 +16,6 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://konstantinmedragon.github.io/CVBakharev/">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Константин Бахарев | Руководитель Отдела исследований">
     <meta name="twitter:description" content="PhD, 25+ лет в технологических исследованиях и управлении аналитикой.">
@@ -51,7 +50,6 @@
             background: var(--white);
         }
 
-        /* Language Switcher */
         .lang-switch {
             position: fixed;
             top: 20px;
@@ -81,7 +79,6 @@
             color: white;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, var(--gray-100) 0%, var(--white) 50%, var(--gray-200) 100%);
@@ -225,7 +222,6 @@
             background: transparent;
         }
 
-        /* Section Styles */
         section {
             padding: 5rem 2rem;
         }
@@ -295,7 +291,7 @@
         }
 
         .expertise-image {
-            min-height: 400px;
+            height: 400px;  /* фиксированная высота, без белой полосы */
             overflow: hidden;
         }
 
@@ -636,7 +632,6 @@
             font-weight: 500;
         }
 
-        /* Footer */
         footer {
             background: var(--primary);
             color: var(--white);
@@ -696,7 +691,10 @@
             .expertise-card { grid-template-columns: 1fr; gap: 0; }
             .expertise-card:nth-child(even) { direction: ltr; }
             .expertise-text { padding: 2rem; order: 2; }
-            .expertise-image { min-height: 300px; order: 1; }
+            .expertise-image { 
+                height: 300px;  /* фиксированная высота для мобильных */
+                order: 1; 
+            }
             .timeline::before { left: 0; }
             .timeline-item { grid-template-columns: 1fr; padding-left: 2rem; }
             .timeline-item:nth-child(even) .timeline-content,
@@ -726,6 +724,7 @@
             .contact-bar { justify-content: flex-start; }
             .intl-grid { grid-template-columns: 1fr; }
             .expertise-text h3 { font-size: 1.5rem; }
+            .expertise-image { height: 250px; }
         }
     </style>
 </head>
