@@ -5,12 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Poly Apo HRP | Eliminate Anti-HRP Interference in Thyroid ELISA</title>
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Poly Apo HRP — Fix for Anti-HRP Autoantibody Interference">
-    <meta property="og:description" content="Add to your one-step competitive ELISA buffer. Neutralizes anti-HRP antibodies during reaction — no pre-incubation, no background signal.">
-    <meta property="og:image" content="image/apo2.png">
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:title" content="Poly Apo HRP — Eliminate Anti-HRP Interference in Thyroid ELISA">
+    <meta property="og:description" content="What's wrong with your thyroid ELISA panel? False positive or negative, high background? Poly Apo HRP — Add to your one-step competitive buffer. Neutralizes anti-HRP autoantibodies during the reaction — no pre-incubation, no background signal.">
+    <meta property="og:image" content="https://konstantinmedragon.github.io/CVBakharev/image/apo2.png">
+    <meta property="og:image:secure_url" content="https://konstantinmedragon.github.io/CVBakharev/image/apo2.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://konstantinmedragon.github.io/CVBakharev/apo.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Poly Apo HRP — Eliminate Anti-HRP Interference in Thyroid ELISA">
+    <meta name="twitter:description" content="What's wrong with your thyroid ELISA panel? False positive or negative, high background? Poly Apo HRP neutralizes anti-HRP autoantibodies during the reaction — no pre-incubation, no background signal.">
+    <meta name="twitter:image" content="https://konstantinmedragon.github.io/CVBakharev/image/apo2.png">
+
+    <!-- Standard meta description -->
+    <meta name="description" content="Poly Apo HRP — A ready-to-use additive for IVD manufacturers. Eliminates anti-HRP autoantibody interference in one-step competitive EIAs (T3, T4). No pre-incubation, no background signal.">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -356,40 +369,6 @@
             color: #bbb;
         }
 
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .footer-contact {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .footer-contact a {
-            color: var(--white);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            opacity: 0.8;
-        }
-
-        .footer-contact a:hover {
-            opacity: 1;
-        }
-
         /* Responsive */
         @media (max-width: 968px) {
             .hero-content, .two-column {
@@ -671,20 +650,28 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">Poly Apo HRP</h2>
-            <p style="margin-bottom: 2rem;">Stop letting anti-HRP antibodies undermine your thyroid assays.<br>Add Poly Apo HRP to your reaction buffer and eliminate this hidden interference — without pre-incubation, without background signal.</p>
-            <div class="footer-contact">
-                <a href="mailto:konstantlab@gmail.com"><i data-lucide="mail"></i> konstantlab@gmail.com</a>
-                <a href="https://linkedin.com/in/drbakharev" target="_blank"><i data-lucide="linkedin"></i> LinkedIn</a>
-                <a href="https://konstantinmedragon.github.io/CVBakharev/" target="_blank"><i data-lucide="file-text"></i> Developer CV</a>
-            </div>
-            <p style="color: var(--gray-600); font-size: 0.875rem;">© 2025 • Poly Apo HRP — For IVD manufacturers • Based in Thailand</p>
-            <p style="margin-top: 1rem; font-size: 0.75rem; opacity: 0.6;">✨ This page was built with vibe coding ✨</p>
-        </div>
+    <!-- Footer (updated with Skycode) -->
+    <footer style="background-color: #000000; padding: 24px 16px; text-align: center; font-family: 'Inter', sans-serif;">
+        <p style="color: #ffffff; margin: 0; font-size: 14px; letter-spacing: 0.3px;">
+            © 2026 Poly Apo HRP. Design & development — 
+            <a href="https://skycode.codes/index-en.html" target="_blank" style="color: #ffffff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); transition: border-color 0.2s; display: inline-flex; align-items: center; gap: 6px;">
+                Skycode
+                <span class="arrow" style="display: inline-block; animation: bounce 1.2s infinite ease-in-out;">→</span>
+            </a>
+        </p>
     </footer>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600&display=swap');
+        footer a:hover {
+            border-bottom-color: #ffffff;
+        }
+        @keyframes bounce {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
 
     <script>
         lucide.createIcons();
