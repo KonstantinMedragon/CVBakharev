@@ -430,6 +430,29 @@
             margin-top: 0.25rem;
             flex-shrink: 0;
         }
+        
+        /* Link style for project items */
+        .project-link {
+            color: inherit;
+            text-decoration: none;
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+            width: 100%;
+            transition: color 0.2s ease;
+        }
+        
+        .project-link:hover {
+            color: var(--accent);
+        }
+        
+        .project-link:hover i {
+            transform: translateX(2px);
+        }
+        
+        .project-link i {
+            transition: transform 0.2s ease;
+        }
 
         /* Competencies Section */
         .competencies {
@@ -639,41 +662,6 @@
             font-weight: 500;
         }
 
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .footer-contact {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-contact a {
-            color: var(--white);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            opacity: 0.8;
-        }
-
-        .footer-contact a:hover {
-            opacity: 1;
-            color: var(--gray-300);
-        }
-
         /* Language-specific visibility */
         .lang-ru { display: none; }
         .lang-en { display: block; }
@@ -818,7 +806,18 @@
                         <ul class="project-list">
                             <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Технологический трансфер триглицеридов</strong><strong class="lang-en">Triglycerides Technology Transfer</strong><br><span class="lang-ru">Организовал передачу технологии от европейского партнёра</span><span class="lang-en">Technology transfer from a European partner</span></div></li>
                             <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Набор для определения витамина D (ELISA/CLIA)</strong><strong class="lang-en">Vitamin D Assay Kit (ELISA/CLIA)</strong><br><span class="lang-ru">Полный цикл: подбор антител, оптимизация формата</span><span class="lang-en">Full cycle: antibody selection, format optimization</span></div></li>
-                            <li><i data-lucide="check-circle"></i><div><strong class="lang-ru">Блокирующие реагенты для конкурентного ИФА</strong><strong class="lang-en">Blocking Reagents for Competitive ELISA</strong><br><span class="lang-ru">Снижение неспецифических взаимодействий</span><span class="lang-en">Non-specific interactions elimination</span></div></li>
+                            <li><i data-lucide="check-circle"></i>
+                                <a href="https://konstantinmedragon.github.io/CVBakharev/apo.html" target="_blank" class="project-link">
+                                    <i data-lucide="external-link"></i>
+                                    <div>
+                                        <strong class="lang-ru">Блокирующие реагенты для конкурентного ИФА (Poly Apo HRP)</strong>
+                                        <strong class="lang-en">Blocking Reagents for Competitive ELISA (Poly Apo HRP)</strong><br>
+                                        <span class="lang-ru">Разработка и коммерциализация решения для устранения интерференции анти-HRP антител</span>
+                                        <span class="lang-en">Development and commercialization of a solution to eliminate anti-HRP antibody interference</span>
+                                        <span style="font-size: 0.8rem; color: var(--accent); display: inline-block; margin-top: 4px;">→ Learn more</span>
+                                    </div>
+                                </a>
+                            </li>
                             <li><i data-lucide="check-circle"></i><div><strong>Ultima 200 & ORIENTER FA280</strong><br><span class="lang-ru">Интеграция китайских анализаторов</span><span class="lang-en">Integration of Chinese analyzers</span></div></li>
                             <li><i data-lucide="check-circle"></i><div><strong>RealFly & RbMag</strong><br><span class="lang-ru">Полностью российская разработка от R&D до серийного производства</span><span class="lang-en">Full domestic development from R&D to serial production</span></div></li>
                         </ul>
@@ -935,25 +934,31 @@
                     </div>
                 </div>
             </div>
-            <div style="margin-top: 2rem; text-align: center; font-size: 0.8rem; color: var(--gray-600);">
-                <span class="lang-ru">✨ Этот сайт создан с помощью вайб-кодинга ✨</span>
-                <span class="lang-en">✨ This website was built with vibe coding ✨</span>
-            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">Konstantin Bakharev</h2>
-            <p style="margin-bottom: 2rem;">Head of Product (IVD) | PhD | 25+ years in diagnostics</p>
-            <div class="footer-contact">
-                <a href="https://wa.me/79217900603" target="_blank"><i data-lucide="message-circle"></i> WhatsApp</a>
-                <a href="mailto:konstantlab@gmail.com"><i data-lucide="mail"></i> konstantlab@gmail.com</a>
-                <a href="https://linkedin.com/in/drbakharev" target="_blank"><i data-lucide="linkedin"></i> LinkedIn</a>
-            </div>
-            <p style="color: var(--gray-600); font-size: 0.875rem;">© 2024 • Based in Thailand • Working with Asia and Europe</p>
-        </div>
+    <!-- Footer (updated) -->
+    <footer style="background-color: #000000; padding: 24px 16px; text-align: center; font-family: 'Inter', sans-serif;">
+        <p style="color: #ffffff; margin: 0; font-size: 14px; letter-spacing: 0.3px;">
+            © 2026 CV Bakharev. Design & development — 
+            <a href="https://skycode.codes/index-en.html" target="_blank" style="color: #ffffff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); transition: border-color 0.2s; display: inline-flex; align-items: center; gap: 6px;">
+                Skycode
+                <span class="arrow" style="display: inline-block; animation: bounce 1.2s infinite ease-in-out;">→</span>
+            </a>
+        </p>
     </footer>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600&display=swap');
+        footer a:hover {
+            border-bottom-color: #ffffff;
+        }
+        @keyframes bounce {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
 
     <script>
         lucide.createIcons();
