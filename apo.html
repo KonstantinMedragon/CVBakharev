@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Poly Apo HRP | Eliminate Anti-HRP Interference in Thyroid ELISA</title>
 
     <!-- Open Graph / Social Media -->
@@ -10,7 +10,7 @@
     <meta property="og:description" content="Add to your one-step competitive ELISA buffer. Neutralizes anti-HRP antibodies during reaction — no pre-incubation, no background signal.">
     <meta property="og:image" content="image/apo2.png">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="">
+    <meta property="og:url" content="https://konstantinmedragon.github.io/CVBakharev/apo.html">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -61,23 +61,39 @@
 
         .hero-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 3.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-text .question-line {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
             color: var(--primary);
             margin-bottom: 1rem;
             line-height: 1.2;
         }
-
-        .hero-text .product-sub {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+        
+        .hero-text .background-line {
+            font-size: 1.3rem;
             color: var(--accent);
             margin-bottom: 1.5rem;
             font-weight: 500;
         }
 
+        .hero-text .product-sub {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin: 1.5rem 0 1rem;
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
+        }
+
         .hero-text .description {
             color: var(--gray-600);
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-bottom: 2rem;
         }
 
@@ -91,12 +107,18 @@
             overflow: hidden;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
             line-height: 0;
+            cursor: pointer;
         }
 
         .image-container img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-container:hover img {
+            transform: scale(1.02);
         }
 
         /* Section Styles */
@@ -135,10 +157,23 @@
             margin: 1rem auto;
         }
 
+        /* Left-aligned text block */
+        .left-text-block {
+            text-align: left;
+            max-width: 900px;
+            margin: 0 auto 3rem auto;
+        }
+        
+        .left-text-block p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
         /* Cards */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -197,7 +232,7 @@
             align-items: start;
         }
 
-        /* Image block */
+        /* Image block with clickable zoom */
         .image-block {
             border-radius: 16px;
             overflow: hidden;
@@ -205,6 +240,12 @@
             background: var(--gray-50);
             text-align: center;
             cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .image-block:hover {
+            transform: scale(1.01);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
         }
 
         .image-block img {
@@ -214,8 +255,8 @@
         }
 
         .image-caption {
-            padding: 1rem;
-            font-size: 0.875rem;
+            padding: 0.75rem;
+            font-size: 0.8rem;
             color: var(--gray-600);
             border-top: 1px solid var(--gray-200);
         }
@@ -276,6 +317,45 @@
             color: var(--accent);
         }
 
+        /* Modal for full-screen images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding: 20px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.95);
+            cursor: pointer;
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .close-modal:hover {
+            color: #bbb;
+        }
+
         /* Footer */
         footer {
             background: var(--primary);
@@ -315,25 +395,49 @@
             .hero-content, .two-column {
                 grid-template-columns: 1fr;
             }
-            .hero-text h1 {
-                font-size: 2.5rem;
+            .hero-text h1, .hero-text .question-line {
+                font-size: 2.2rem;
+            }
+            .hero-text .background-line {
+                font-size: 1.1rem;
             }
             section {
                 padding: 3rem 1.5rem;
             }
             .section-header h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            .modal-content {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-text h1, .hero-text .question-line {
+                font-size: 1.8rem;
+            }
+            .hero-text .background-line {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Modal for full-screen images -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>What's wrong with your thyroid ELISA panel?</h1>
+                <div class="question-line">What's wrong with your thyroid</div>
+                <h1>ELISA panel?</h1>
+                <div class="background-line">False positive or negative, high background?</div>
                 <p class="product-sub">Poly Apo HRP — Add to your one-step competitive buffer. Neutralizes anti-HRP autoantibodies <strong>during the reaction</strong> — no pre-incubation, no background signal.</p>
                 <p class="description">A ready-to-use additive for IVD manufacturers. Eliminates a critical interference specific to one-step competitive EIAs (T3, T4) caused by cross-reactive autoantibodies from patients with thyroid autoimmunity.</p>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
@@ -342,21 +446,23 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div class="image-container">
+                <div class="image-container" onclick="openModal(this.querySelector('img').src)">
                     <img src="image/apo2.png" alt="Poly Apo HRP mechanism">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 1: The Problem -->
+    <!-- Section 1: The Problem (left-aligned) -->
     <section style="background: var(--gray-50);">
         <div class="container">
             <div class="section-header">
                 <h2>The Hidden Threat in One-Step ELISA</h2>
                 <div class="accent-line"></div>
+            </div>
+            <div class="left-text-block">
                 <p><strong>ELISA is a well-established technique used worldwide to quantify analytes in diverse biological samples. Clinicians rely on its accuracy and precision to administer patient care. However, these results must be held with great scrutiny, as the assay is subject to errors caused by interfering substances in the sample matrix.</strong></p>
-                <p style="margin-top: 1rem;">Among the most insidious of these interferences are <strong>human autoantibodies against the Horseradish Peroxidase (HRP) label</strong> — a critical component of countless immunoassay systems.</p>
+                <p>Among the most insidious of these interferences are <strong>human autoantibodies against the Horseradish Peroxidase (HRP) label</strong> — a critical component of countless immunoassay systems.</p>
             </div>
             <div class="two-column">
                 <div class="card">
@@ -368,7 +474,7 @@
                     </ul>
                     <p style="margin-top: 1rem; font-weight: 500;">Clinical consequence: False elevation of T3/T4 → unnecessary treatment or surgery.</p>
                 </div>
-                <div class="image-block">
+                <div class="image-block" onclick="openModal(this.querySelector('img').src)">
                     <img src="image/apo1.png" alt="One-step ELISA interference schematic">
                     <div class="image-caption">Schematic of competitive one-step EIA: Anti-HRP antibodies bind HRP-T3 conjugate during simultaneous incubation, blocking signal → false high T3.</div>
                 </div>
@@ -444,12 +550,10 @@
                 <p>A landmark case report proving anti-HRP autoantibodies cause spurious results in one-step competitive immunoassays.</p>
             </div>
             <div style="max-width: 800px; margin: 0 auto;">
-                <a href="https://pubmed.ncbi.nlm.nih.gov/29175172/" target="_blank" style="text-decoration: none;">
-                    <div class="image-block" style="cursor: pointer;">
-                        <img src="image/pubmed1.png" alt="PubMed case report screenshot">
-                        <div class="image-caption">Click to open the full abstract on PubMed (PMID: 29175172)</div>
-                    </div>
-                </a>
+                <div class="image-block" onclick="window.open('https://pubmed.ncbi.nlm.nih.gov/29175172/', '_blank')">
+                    <img src="image/pubmed1.png" alt="PubMed case report screenshot">
+                    <div class="image-caption">Click to open the full abstract on PubMed (PMID: 29175172)</div>
+                </div>
                 <div class="card" style="margin-top: 2rem;">
                     <h3>Key findings from Lim et al., Clin Chim Acta. 2018</h3>
                     <ul class="benefit-list">
@@ -497,7 +601,7 @@
                         <tr><td><strong>False elevation of T3</strong></td><td><strong>Accurate result</strong></td></tr>
                     </table>
                 </div>
-                <div class="image-block">
+                <div class="image-block" onclick="openModal(this.querySelector('img').src)">
                     <img src="image/apo2.png" alt="Poly Apo HRP mechanism">
                     <div class="image-caption">Poly Apo HRP (enzymatically inactive, polymeric) outcompetes the HRP-T3 conjugate for anti-HRP antibody binding — <strong>no pre-incubation required</strong>.</div>
                 </div>
@@ -511,7 +615,7 @@
             <div class="section-header">
                 <h2>Poly Apo HRP vs. Native HRP Overload</h2>
                 <div class="accent-line"></div>
-                <p>Why “just add more HRP” is a bad idea — and why Poly Apo HRP is different.</p>
+                <p>Why "just add more HRP" is a bad idea — and why Poly Apo HRP is different.</p>
             </div>
             <table class="data-table">
                 <tr><th>Parameter</th><th>Excess Native HRP</th><th>Poly Apo HRP</th></tr>
@@ -536,7 +640,7 @@
                 <div class="card"><h3>🔧 Simple integration</h3><p>Add to reaction buffer — no protocol changes, no pre-incubation step for end users</p></div>
                 <div class="card"><h3>🎯 Specific neutralization</h3><p>Designed exclusively for anti-HRP autoantibodies</p></div>
                 <div class="card"><h3>🧪 Zero background signal</h3><p>Enzymatically inactive apo-HRP</p></div>
-                <div class="card"><h3>⚖️ Competitive advantage</h3><p>Differentiate your T3/T4 kits as “interference-protected”</p></div>
+                <div class="card"><h3>⚖️ Competitive advantage</h3><p>Differentiate your T3/T4 kits as "interference-protected"</p></div>
                 <div class="card"><h3>📊 Evidence-based</h3><p>Built on published neutralization principle (PMID: 29175172)</p></div>
                 <div class="card"><h3>🌍 Scalable</h3><p>Manufactured in concentrated form for bulk use</p></div>
             </div>
@@ -584,6 +688,28 @@
 
     <script>
         lucide.createIcons();
+        
+        // Modal functions for full-screen images
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = "flex";
+            modalImg.src = imageSrc;
+            document.body.style.overflow = "hidden";
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
