@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poly Apo HRP | Eliminate Anti-HRP Interference in Thyroid ELISA</title>
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Poly Apo HRP — Fix for Anti-HRP Autoantibody Interference">
+    <meta property="og:description" content="Add to your one-step competitive ELISA buffer. Neutralizes anti-HRP antibodies during reaction — no pre-incubation, no background signal.">
+    <meta property="og:image" content="image/apo2.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #111111;
+            --secondary: #2c2c2c;
+            --accent: #3a3a3a;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-600: #525252;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            background: linear-gradient(135deg, var(--gray-100) 0%, var(--white) 50%, var(--gray-200) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text .product-sub {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-text .description {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .image-container {
+            background: var(--gray-100);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            line-height: 0;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .accent-line {
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 1rem auto;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
+            border-color: var(--gray-300);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            background: var(--gray-50);
+            border-collapse: collapse;
+            border-radius: 16px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+
+        .data-table th, .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .data-table th {
+            background: var(--gray-100);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Two column layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* Image block */
+        .image-block {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            background: var(--gray-50);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            padding: 1rem;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            border-top: 1px solid var(--gray-200);
+        }
+
+        /* Benefit list */
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefit-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .benefit-list li:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-list i {
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gray-200);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: transparent;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-contact a:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content, .two-column {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            section {
+                padding: 3rem 1.5rem;
+            }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>What's wrong with your thyroid ELISA panel?</h1>
+                <p class="product-sub">Poly Apo HRP — Add to your one-step competitive buffer. Neutralizes anti-HRP autoantibodies <strong>during the reaction</strong> — no pre-incubation, no background signal.</p>
+                <p class="description">A ready-to-use additive for IVD manufacturers. Eliminates a critical interference specific to one-step competitive EIAs (T3, T4) caused by cross-reactive autoantibodies from patients with thyroid autoimmunity.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#contact" class="btn">Request Technical Data Sheet</a>
+                    <a href="#mechanism" class="btn btn-outline">See How It Works</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="image/apo2.png" alt="Poly Apo HRP mechanism">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: The Problem -->
+    <section style="background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Hidden Threat in One-Step ELISA</h2>
+                <div class="accent-line"></div>
+                <p><strong>ELISA is a well-established technique used worldwide to quantify analytes in diverse biological samples. Clinicians rely on its accuracy and precision to administer patient care. However, these results must be held with great scrutiny, as the assay is subject to errors caused by interfering substances in the sample matrix.</strong></p>
+                <p style="margin-top: 1rem;">Among the most insidious of these interferences are <strong>human autoantibodies against the Horseradish Peroxidase (HRP) label</strong> — a critical component of countless immunoassay systems.</p>
+            </div>
+            <div class="two-column">
+                <div class="card">
+                    <h3>The "One-Step" Vulnerability</h3>
+                    <p>Anti-HRP autoantibodies <strong>only interfere in one-step (competitive) EIA formats</strong>.</p>
+                    <ul class="benefit-list" style="margin-top: 1rem;">
+                        <li><i data-lucide="check-circle"></i> <strong>Two-step assays:</strong> Autoantibodies washed away before HRP conjugate added → No interference</li>
+                        <li><i data-lucide="alert-circle"></i> <strong>One-step assays (e.g., competitive T3/T4 ELISA):</strong> Sample and HRP-conjugate incubated together → Autoantibodies bind HRP and block activity</li>
+                    </ul>
+                    <p style="margin-top: 1rem; font-weight: 500;">Clinical consequence: False elevation of T3/T4 → unnecessary treatment or surgery.</p>
+                </div>
+                <div class="image-block">
+                    <img src="image/apo1.png" alt="One-step ELISA interference schematic">
+                    <div class="image-caption">Schematic of competitive one-step EIA: Anti-HRP antibodies bind HRP-T3 conjugate during simultaneous incubation, blocking signal → false high T3.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Market Data (Updated: ELISA vs CLIA separated) -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>A Global Diagnostic Challenge</h2>
+                <div class="accent-line"></div>
+                <p>Thyroid disorders affect hundreds of millions worldwide. The thyroid function test market is large and growing — but the data must be separated by technology.</p>
+            </div>
+            <div class="two-column">
+                <div>
+                    <h3 style="margin-bottom: 1rem;">Global Thyroid Function Test Market</h3>
+                    <table class="data-table">
+                        <tr><th>Metric</th><th>Value</th></tr>
+                        <tr><td>Global TFT Market (2025)</td><td>USD 1.89 – 2.03 billion</td></tr>
+                        <tr><td>Projected (2030-2032)</td><td>USD 2.47 – 2.71 billion</td></tr>
+                        <tr><td>CAGR</td><td>4.2% – 5.5%</td></tr>
+                    </table>
+                    <h3 style="margin: 1.5rem 0 1rem;">Market Share by Technology</h3>
+                    <table class="data-table">
+                        <tr><th>Technology</th><th>Share</th><th>Notes</th></tr>
+                        <tr><td><strong>ELISA</strong></td><td>~60% by <em>volume</em></td><td>Dominates in small to mid-sized labs, manual/semi-automated</td></tr>
+                        <tr><td><strong>Chemiluminescence (CLIA)</strong></td><td>~50% by <em>value</em></td><td>Dominates in high-throughput automated labs</td></tr>
+                    </table>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray-600);"><strong>T3 and T4 tests remain essential</strong> for differential diagnosis of hyperthyroidism and monitoring thyroid cancer patients — and both are frequently run on one-step competitive ELISA platforms.</p>
+                </div>
+                <div class="card">
+                    <h3>Why This Matters for ELISA Manufacturers</h3>
+                    <p>While CLIA has higher revenue per test, <strong>ELISA remains the workhorse</strong> for many laboratories worldwide due to lower equipment costs and flexibility. Approximately <strong>60% of thyroid function tests by volume</strong> are still performed on ELISA platforms, especially in emerging markets and mid-sized clinical labs.</p>
+                    <p style="margin-top: 1rem;">Every manufacturer of competitive one-step T3/T4 ELISA kits is potentially affected — often without knowing it, because routine QC cannot detect this matrix-specific interference.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Biological Root Cause (TPO cross-reactivity) -->
+    <section style="background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Biological Link: Thyroid Autoimmunity</h2>
+                <div class="accent-line"></div>
+                <p>Why do some patients develop anti-HRP antibodies? Molecular mimicry between human Thyroid Peroxidase (TPO) and Horseradish Peroxidase (HRP).</p>
+            </div>
+            <div class="two-column">
+                <div>
+                    <table class="data-table">
+                        <tr><th>Population</th><th>Anti-TPO Antibody Prevalence</th></tr>
+                        <tr><td>General adult population</td><td>6% – 13%</td></tr>
+                        <tr><td>General female population</td><td>10% – 15%</td></tr>
+                        <tr><td>Autoimmune thyroid disease</td><td>37% – 90%</td></tr>
+                        <tr><td>Rheumatoid arthritis</td><td>5% – 37%</td></tr>
+                    </table>
+                </div>
+                <div class="card">
+                    <p><strong>The clinical reality:</strong> Approximately 8% of males and 10-15% of females without known thyroid disease still harbor detectable thyroid autoantibodies. Any patient with autoimmune thyroid disease (or even subclinical autoimmunity) is at risk for cross-reactive anti-HRP antibodies that can <strong>ruin your one-step T3/T4 ELISA results</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Published Evidence (clickable image) -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Published Evidence</h2>
+                <div class="accent-line"></div>
+                <p>A landmark case report proving anti-HRP autoantibodies cause spurious results in one-step competitive immunoassays.</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/29175172/" target="_blank" style="text-decoration: none;">
+                    <div class="image-block" style="cursor: pointer;">
+                        <img src="image/pubmed1.png" alt="PubMed case report screenshot">
+                        <div class="image-caption">Click to open the full abstract on PubMed (PMID: 29175172)</div>
+                    </div>
+                </a>
+                <div class="card" style="margin-top: 2rem;">
+                    <h3>Key findings from Lim et al., Clin Chim Acta. 2018</h3>
+                    <ul class="benefit-list">
+                        <li><i data-lucide="check-circle"></i> Two sisters with mild hirsutism → grossly elevated androstenedione (>34.9 nmol/L) by one-step HRP-based immunoassay</li>
+                        <li><i data-lucide="check-circle"></i> LC-MS/MS (reference method) → normal levels</li>
+                        <li><i data-lucide="check-circle"></i> Neutralization with HRP-conjugate → normalized results (9.5 and 12.5 nmol/L)</li>
+                        <li><i data-lucide="check-circle"></i> <strong>Author conclusion:</strong> "The interference is due to autoantibodies against the HRP label used in the immunoassay. This is the first report of autoantibodies against the HRP label."</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Existing approaches are flawed -->
+    <section style="background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Existing Approaches Are Flawed</h2>
+                <div class="accent-line"></div>
+            </div>
+            <div class="card-grid">
+                <div class="card"><h3>Adding excess native HRP</h3><p>❌ Restores activity BUT generates <strong>high background signal</strong> (false negatives, poor sensitivity)</p></div>
+                <div class="card"><h3>PEG precipitation</h3><p>❌ Non-specific, dilutes sample, labor-intensive — not feasible in routine kits</p></div>
+                <div class="card"><h3>Heterophile blocking tubes</h3><p>❌ Often ineffective against high-affinity anti-HRP autoantibodies</p></div>
+                <div class="card"><h3>LC-MS/MS</h3><p>❌ Expensive, not scalable, unavailable in most routine labs</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Your Solution — Poly Apo HRP (corrected mechanism) -->
+    <section id="mechanism">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Solution: Poly Apo HRP</h2>
+                <div class="accent-line"></div>
+                <p>An elegant engineering solution for assay developers. No pre-incubation required — works <strong>during the one-step reaction</strong>.</p>
+            </div>
+            <div class="two-column">
+                <div>
+                    <h3>How it works (no pre-incubation)</h3>
+                    <p>Poly Apo HRP is supplied in highly concentrated form and added by the kit manufacturer <strong>directly to the reaction buffer</strong> that contains the HRP conjugate. During the one-step incubation, Poly Apo HRP <strong>competes for binding with the conjugate</strong> and wins due to its <strong>multiplicity of binding centers</strong> (polymeric, apo-enzymatically inactive HRP).</p>
+                    <table class="data-table" style="margin-top: 1rem;">
+                        <tr><th>Without Poly Apo HRP</th><th>With Poly Apo HRP (in buffer)</th></tr>
+                        <tr><td>Anti-HRP antibodies bind to HRP-T3 conjugate → HRP blocked → no color</td><td>Poly Apo HRP captures anti-HRP antibodies first → HRP-T3 conjugate remains free and active → normal color</td></tr>
+                        <tr><td><strong>False elevation of T3</strong></td><td><strong>Accurate result</strong></td></tr>
+                    </table>
+                </div>
+                <div class="image-block">
+                    <img src="image/apo2.png" alt="Poly Apo HRP mechanism">
+                    <div class="image-caption">Poly Apo HRP (enzymatically inactive, polymeric) outcompetes the HRP-T3 conjugate for anti-HRP antibody binding — <strong>no pre-incubation required</strong>.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Comparison table -->
+    <section style="background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Poly Apo HRP vs. Native HRP Overload</h2>
+                <div class="accent-line"></div>
+                <p>Why “just add more HRP” is a bad idea — and why Poly Apo HRP is different.</p>
+            </div>
+            <table class="data-table">
+                <tr><th>Parameter</th><th>Excess Native HRP</th><th>Poly Apo HRP</th></tr>
+                <tr><td>Neutralizes anti-HRP antibodies</td><td>✅ Yes</td><td>✅ Yes</td></tr>
+                <tr><td>Enzymatic activity</td><td>✅ Yes (active)</td><td>❌ <strong>No (apo form)</strong></td></tr>
+                <tr><td>Generates background signal</td><td>❌ <strong>Yes — false negatives</strong></td><td>✅ No</td></tr>
+                <tr><td>Maintains assay sensitivity</td><td>❌ Often compromised</td><td>✅ Preserved</td></tr>
+                <tr><td>Ready for buffer incorporation</td><td>⚠️ Requires titration</td><td>✅ Yes — defined formulation</td></tr>
+            </table>
+            <p style="margin-top: 1.5rem; text-align: center;"><strong>The unique advantage:</strong> Decouples neutralization capacity from enzymatic activity. Add enough to block all anti-HRP antibodies without ever worrying about excess peroxidase activity distorting your results.</p>
+        </div>
+    </section>
+
+    <!-- Section 8: Key Benefits -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Add Poly Apo HRP to Your Buffer</h2>
+                <div class="accent-line"></div>
+            </div>
+            <div class="card-grid">
+                <div class="card"><h3>🔧 Simple integration</h3><p>Add to reaction buffer — no protocol changes, no pre-incubation step for end users</p></div>
+                <div class="card"><h3>🎯 Specific neutralization</h3><p>Designed exclusively for anti-HRP autoantibodies</p></div>
+                <div class="card"><h3>🧪 Zero background signal</h3><p>Enzymatically inactive apo-HRP</p></div>
+                <div class="card"><h3>⚖️ Competitive advantage</h3><p>Differentiate your T3/T4 kits as “interference-protected”</p></div>
+                <div class="card"><h3>📊 Evidence-based</h3><p>Built on published neutralization principle (PMID: 29175172)</p></div>
+                <div class="card"><h3>🌍 Scalable</h3><p>Manufactured in concentrated form for bulk use</p></div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <p><strong>Ideal for:</strong> IVD manufacturers producing competitive one-step ELISA kits for T3, T4, or any small molecule assay using an HRP label.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 9: About the developer + Contact (link to CV) -->
+    <section id="contact" style="background: var(--gray-100);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Developed by Konstantin Bakharev, PhD</h2>
+                <div class="accent-line"></div>
+                <p>Head of Product (IVD) with 25+ years of experience in immunoassay development, technology transfer, and international certification.</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <div class="card" style="background: var(--white);">
+                    <p style="margin-bottom: 1rem;">Poly Apo HRP is the result of hands-on experience solving real interference problems in competitive one-step ELISA — from raw material selection to final kit formulation.</p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="https://konstantinmedragon.github.io/CVBakharev/" target="_blank" class="btn">View Full CV / Resume</a>
+                        <a href="mailto:konstantlab@gmail.com" class="btn btn-outline">Email: konstantlab@gmail.com</a>
+                        <a href="https://linkedin.com/in/drbakharev" target="_blank" class="btn btn-outline">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">Poly Apo HRP</h2>
+            <p style="margin-bottom: 2rem;">Stop letting anti-HRP antibodies undermine your thyroid assays.<br>Add Poly Apo HRP to your reaction buffer and eliminate this hidden interference — without pre-incubation, without background signal.</p>
+            <div class="footer-contact">
+                <a href="mailto:konstantlab@gmail.com"><i data-lucide="mail"></i> konstantlab@gmail.com</a>
+                <a href="https://linkedin.com/in/drbakharev" target="_blank"><i data-lucide="linkedin"></i> LinkedIn</a>
+                <a href="https://konstantinmedragon.github.io/CVBakharev/" target="_blank"><i data-lucide="file-text"></i> Developer CV</a>
+            </div>
+            <p style="color: var(--gray-600); font-size: 0.875rem;">© 2025 • Poly Apo HRP — For IVD manufacturers • Based in Thailand</p>
+            <p style="margin-top: 1rem; font-size: 0.75rem; opacity: 0.6;">✨ This page was built with vibe coding ✨</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
