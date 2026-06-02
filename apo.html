@@ -39,9 +39,17 @@
             --white: #ffffff;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--secondary); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: var(--secondary); 
+            line-height: 1.6; 
+            background: var(--white); 
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
         
-        /* Burger Menu — без обводки, просто иконка */
+        /* Burger Menu — всегда видим, без обводки */
         .burger-menu {
             position: fixed;
             top: 20px;
@@ -50,6 +58,10 @@
             cursor: pointer;
             padding: 8px;
             transition: opacity 0.2s ease;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .burger-menu:hover {
             opacity: 0.7;
@@ -107,6 +119,7 @@
             color: var(--gray-600);
         }
         
+        /* Hero */
         .hero { min-height: 85vh; background: linear-gradient(135deg, var(--gray-100) 0%, var(--white) 50%, var(--gray-200) 100%); display: flex; align-items: center; padding-top: 0; margin-top: 0; }
         .hero-content { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
         .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.2rem; color: var(--primary); margin-bottom: 0.5rem; line-height: 1.2; }
@@ -118,8 +131,10 @@
         .image-container { background: var(--gray-100); border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); line-height: 0; cursor: pointer; transition: transform 0.2s ease; }
         .image-container img { width: 100%; height: auto; display: block; }
         .image-container:active { transform: scale(0.98); }
+        
+        /* Sections */
         section { padding: 4rem 2rem; scroll-margin-top: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; }
+        .container { max-width: 1200px; margin: 0 auto; width: 100%; }
         .section-header { text-align: center; margin-bottom: 3rem; }
         .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
         .section-header p { color: var(--gray-600); font-size: 1.125rem; max-width: 700px; margin: 0 auto; }
@@ -130,10 +145,30 @@
         .card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 16px; padding: 2rem; transition: all 0.3s ease; }
         .card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1); border-color: var(--gray-300); }
         .card h3 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--primary); }
-        .data-table { width: 100%; background: var(--gray-50); border-collapse: collapse; border-radius: 16px; overflow: hidden; margin: 1.5rem 0; }
-        .data-table th, .data-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--gray-200); }
+        
+        /* Tables — теперь безопасные на мобильных */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        .data-table { 
+            width: 100%; 
+            background: var(--gray-50); 
+            border-collapse: collapse; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            min-width: 300px;
+        }
+        .data-table th, .data-table td { 
+            padding: 1rem; 
+            text-align: left; 
+            border-bottom: 1px solid var(--gray-200); 
+        }
         .data-table th { background: var(--gray-100); font-weight: 600; color: var(--primary); }
         .data-table tr:last-child td { border-bottom: none; }
+        
         .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
         .image-block { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); background: var(--gray-50); text-align: center; cursor: pointer; transition: all 0.2s ease; }
         .image-block:active { transform: scale(0.98); }
@@ -173,7 +208,6 @@
             cursor: zoom-out;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            position: relative;
             margin: auto;
         }
         @media (max-width: 768px) {
@@ -206,6 +240,7 @@
             .close-modal { top: 15px; right: 15px; width: 40px; height: 40px; font-size: 30px; }
         }
 
+        /* Responsive */
         @media (max-width: 968px) {
             .hero-content, .two-column { grid-template-columns: 1fr; }
             .hero-text h1, .hero-text .question-line { font-size: 2.2rem; }
@@ -216,12 +251,13 @@
         @media (max-width: 640px) {
             .hero-text h1, .hero-text .question-line { font-size: 1.8rem; }
             .hero-text .background-line { font-size: 1rem; }
+            .burger-menu { top: 15px; right: 15px; }
         }
     </style>
 </head>
 <body>
 
-<!-- Burger Menu — без обводки -->
+<!-- Burger Menu — без обводки, всегда справа -->
 <div class="burger-menu" onclick="toggleMenu()">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -261,7 +297,7 @@
         </div>
         <div class="hero-image">
             <div class="image-container" onclick="openModalByDevice('apo2')">
-                <img src="image/apo2.png" alt="Poly Apo HRP mechanism" id="previewImg2">
+                <img src="image/apo2.png" alt="Poly Apo HRP mechanism">
             </div>
         </div>
     </div>
@@ -285,61 +321,117 @@
                 <p style="margin-top: 1rem; font-weight: 500;">Clinical consequence: False elevation of T3/T4 → unnecessary treatment or surgery.</p>
             </div>
             <div class="image-block" onclick="openModalByDevice('apo1')">
-                <img src="image/apo1.png" alt="One-step ELISA interference schematic" id="previewImg1">
+                <img src="image/apo1.png" alt="One-step ELISA interference schematic">
                 <div class="image-caption">Competitive one-step EIA: Anti-HRP antibodies block signal → false high T3.</div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="market"><div class="container"><div class="section-header"><h2>A Global Diagnostic Challenge</h2><div class="accent-line"></div><p>Thyroid disorders affect hundreds of millions worldwide. The thyroid function test market is large and growing.</p></div>
-<div class="two-column"><div><h3>Global Thyroid Function Test Market</h3><table class="data-table"><tr><th>Metric</th><th>Value</th></tr><tr><td>Global TFT Market (2025)</td><td>USD 1.89 – 2.03B</td></tr>
-                <tr><td>Projected (2030-2032)</td><td>USD 2.47 – 2.71B</td></tr>
-                <tr><td>CAGR</td><td>4.2% – 5.5%</td></tr>
-            </table>
-            <h3>Market Share by Technology</h3>
-            <table class="data-table">
-                <tr><th>Technology</th><th>Share</th></tr>
-                <tr><td><strong>ELISA</strong></td><td>~60% by <em>volume</em></td></tr>
-                <tr><td><strong>Chemiluminescence (CLIA)</strong></td><td>~50% by <em>value</em></td></tr>
-             </table>
+<section id="market">
+    <div class="container">
+        <div class="section-header"><h2>A Global Diagnostic Challenge</h2><div class="accent-line"></div><p>Thyroid disorders affect hundreds of millions worldwide. The thyroid function test market is large and growing.</p></div>
+        <div class="two-column">
+            <div>
+                <h3>Global Thyroid Function Test Market</h3>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <tr><th>Metric</th><th>Value</th></tr>
+                        <tr><td>Global TFT Market (2025)</td><td>USD 1.89 – 2.03B</td></tr>
+                        <tr><td>Projected (2030-2032)</td><td>USD 2.47 – 2.71B</td></tr>
+                        <tr><td>CAGR</td><td>4.2% – 5.5%</td></tr>
+                    </table>
+                </div>
+                <h3>Market Share by Technology</h3>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <tr><th>Technology</th><th>Share</th></tr>
+                        <tr><td><strong>ELISA</strong></td><td>~60% by <em>volume</em></td></tr>
+                        <tr><td><strong>Chemiluminescence (CLIA)</strong></td><td>~50% by <em>value</em></td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="card"><h3>Why This Matters for ELISA Manufacturers</h3><p>ELISA remains the workhorse for many labs. ~60% of thyroid tests by volume are still on ELISA. Every manufacturer of competitive one-step T3/T4 kits is potentially affected — routine QC cannot detect this interference.</p></div>
         </div>
-        <div class="card"><h3>Why This Matters for ELISA Manufacturers</h3><p>ELISA remains the workhorse for many labs. ~60% of thyroid tests by volume are still on ELISA. Every manufacturer of competitive one-step T3/T4 kits is potentially affected — routine QC cannot detect this interference.</p></div>
-    </div></div></section>
+    </div>
+</section>
 
-<section style="background: var(--gray-50);" id="biology"><div class="container"><div class="section-header"><h2>The Biological Link: Thyroid Autoimmunity</h2><div class="accent-line"></div><p>Molecular mimicry between human Thyroid Peroxidase (TPO) and Horseradish Peroxidase (HRP).</p></div>
-<div class="two-column"><div><table class="data-table"><tr><th>Population</th><th>Anti-TPO Prevalence</th></tr>
-                <tr><td>General adult</td><td>6% – 13%</td></tr>
-                <tr><td>General female</td><td>10% – 15%</td></tr>
-                <tr><td>Autoimmune thyroid disease</td><td>37% – 90%</td></tr>
-             </table>
+<section style="background: var(--gray-50);" id="biology">
+    <div class="container">
+        <div class="section-header"><h2>The Biological Link: Thyroid Autoimmunity</h2><div class="accent-line"></div><p>Molecular mimicry between human Thyroid Peroxidase (TPO) and Horseradish Peroxidase (HRP).</p></div>
+        <div class="two-column">
+            <div>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <tr><th>Population</th><th>Anti-TPO Prevalence</th></tr>
+                        <tr><td>General adult</td><td>6% – 13%</td></tr>
+                        <tr><td>General female</td><td>10% – 15%</td></tr>
+                        <tr><td>Autoimmune thyroid disease</td><td>37% – 90%</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="card"><p><strong>Clinical reality:</strong> ~8% of males and 10-15% of females without known thyroid disease have thyroid autoantibodies. Any patient with thyroid autoimmunity is at risk for cross-reactive anti-HRP antibodies that ruin one-step T3/T4 ELISA results.</p></div>
         </div>
-        <div class="card"><p><strong>Clinical reality:</strong> ~8% of males and 10-15% of females without known thyroid disease have thyroid autoantibodies. Any patient with thyroid autoimmunity is at risk for cross-reactive anti-HRP antibodies that ruin one-step T3/T4 ELISA results.</p></div>
-    </div></div></section>
+    </div>
+</section>
 
-<section id="evidence"><div class="container"><div class="section-header"><h2>Published Evidence</h2><div class="accent-line"></div><p>Landmark case report (Lim et al., Clin Chim Acta. 2018, PMID: 29175172).</p></div>
-<div style="max-width:800px;margin:0 auto"><div class="image-block" onclick="window.open('https://pubmed.ncbi.nlm.nih.gov/29175172/', '_blank')"><img src="image/pubmed1.png" alt="PubMed"><div class="image-caption">Click to open abstract on PubMed</div></div>
-<div class="card" style="margin-top:2rem"><h3>Key findings</h3><ul class="benefit-list"><li><i data-lucide="check-circle"></i> Two sisters with mild hirsutism → grossly elevated androstenedione by one-step HRP-based immunoassay</li><li><i data-lucide="check-circle"></i> LC-MS/MS → normal levels</li><li><i data-lucide="check-circle"></i> Neutralization with HRP-conjugate → normalized results</li><li><i data-lucide="check-circle"></i> <strong>Author conclusion:</strong> "interference is due to autoantibodies against the HRP label"</li></ul></div></div></div></section>
-
-<section style="background: var(--gray-50);"><div class="container"><div class="section-header"><h2>Existing Approaches Are Flawed</h2><div class="accent-line"></div></div><div class="card-grid"><div class="card"><h3>Excess native HRP</h3><p>❌ High background signal (false negatives)</p></div><div class="card"><h3>PEG precipitation</h3><p>❌ Non-specific, dilutes sample</p></div><div class="card"><h3>Heterophile blocking tubes</h3><p>❌ Often ineffective vs high-affinity anti-HRP</p></div><div class="card"><h3>LC-MS/MS</h3><p>❌ Expensive, not scalable</p></div></div></div></section>
-
-<section id="solution"><div class="container"><div class="section-header"><h2>The Solution: Poly Apo HRP</h2><div class="accent-line"></div><p>No pre-incubation — works during the one-step reaction.</p></div>
-<div class="two-column"><div><h3>How it works</h3><p>Poly Apo HRP is added directly to the reaction buffer. During incubation, it outcompetes the HRP conjugate for anti-HRP antibodies due to its multiplicity of binding centers (polymeric, apo-enzymatically inactive).</p><table class="data-table"><tr><th>Without Poly Apo HRP</th><th>With Poly Apo HRP</th></tr>
-                <tr><td>Anti-HRP blocks HRP → no color</td><td>Poly Apo HRP captures antibodies first → HRP free → normal color</td></tr>
-                <tr><td><strong>False elevation of T3</strong></td><td><strong>Accurate result</strong></td></tr>
-             </table>
+<section id="evidence">
+    <div class="container">
+        <div class="section-header"><h2>Published Evidence</h2><div class="accent-line"></div><p>Landmark case report (Lim et al., Clin Chim Acta. 2018, PMID: 29175172).</p></div>
+        <div style="max-width:800px;margin:0 auto">
+            <div class="image-block" onclick="window.open('https://pubmed.ncbi.nlm.nih.gov/29175172/', '_blank')">
+                <img src="image/pubmed1.png" alt="PubMed">
+                <div class="image-caption">Click to open abstract on PubMed</div>
+            </div>
+            <div class="card" style="margin-top:2rem">
+                <h3>Key findings</h3>
+                <ul class="benefit-list">
+                    <li><i data-lucide="check-circle"></i> Two sisters with mild hirsutism → grossly elevated androstenedione by one-step HRP-based immunoassay</li>
+                    <li><i data-lucide="check-circle"></i> LC-MS/MS → normal levels</li>
+                    <li><i data-lucide="check-circle"></i> Neutralization with HRP-conjugate → normalized results</li>
+                    <li><i data-lucide="check-circle"></i> <strong>Author conclusion:</strong> "interference is due to autoantibodies against the HRP label"</li>
+                </ul>
+            </div>
         </div>
-        <div class="image-block" onclick="openModalByDevice('apo2')"><img src="image/apo2.png" alt="Poly Apo HRP mechanism"><div class="image-caption">Poly Apo HRP (enzymatically inactive, polymeric) — no pre‑incubation required.</div></div>
-    </div></div></section>
+    </div>
+</section>
 
-<section style="background: var(--gray-50);"><div class="container"><div class="section-header"><h2>Poly Apo HRP vs. Native HRP Overload</h2><div class="accent-line"></div></div><table class="data-table"><tr><th>Parameter</th><th>Excess Native HRP</th><th>Poly Apo HRP</th></tr>
-            <tr><td>Neutralizes anti-HRP</td><td>✅ Yes</td><td>✅ Yes</td></tr>
-            <tr><td>Enzymatic activity</td><td>✅ Yes (active)</td><td>❌ <strong>No (apo form)</strong></td></tr>
-            <tr><td>Background signal</td><td>❌ Yes — false negatives</td><td>✅ No</td></tr>
-            <tr><td>Maintains sensitivity</td><td>❌ Often compromised</td><td>✅ Preserved</td></tr>
-            <tr><td>Ready for buffer incorporation</td><td>⚠️ Requires titration</td><td>✅ Yes — defined formulation</td></tr>
-         </table>
-    <p style="margin-top:1.5rem;text-align:center"><strong>Unique advantage:</strong> Decouples neutralization from enzymatic activity — no excess signal, just clean blocking.</p></div></section>
+<section style="background: var(--gray-50);"><div class="container"><div class="section-header"><h2>Existing Approaches Are Flawed</h2><div class="accent-line"></div></div><div class="card-grid"><div class="card"><h3>Excess native HRP</h3><p>❌ High background signal (false negatives)</p></div><div class="card"><h3>LC-MS/MS</h3><p>❌ Expensive, not scalable</p></div></div></div></section>
+
+<section id="solution">
+    <div class="container">
+        <div class="section-header"><h2>The Solution: Poly Apo HRP</h2><div class="accent-line"></div><p>No pre-incubation — works during the one-step reaction.</p></div>
+        <div class="two-column">
+            <div>
+                <h3>How it works</h3>
+                <p>Poly Apo HRP is added directly to the reaction buffer. During incubation, it outcompetes the HRP conjugate for anti-HRP antibodies due to its multiplicity of binding centers (polymeric, apo-enzymatically inactive).</p>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <tr><th>Without Poly Apo HRP</th><th>With Poly Apo HRP</th></tr>
+                        <tr><td>Anti-HRP blocks HRP → no color</td><td>Poly Apo HRP captures antibodies first → HRP free → normal color</td></tr>
+                        <tr><td><strong>False elevation of T3</strong></td><td><strong>Accurate result</strong></td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="image-block" onclick="openModalByDevice('apo2')">
+                <img src="image/apo2.png" alt="Poly Apo HRP mechanism">
+                <div class="image-caption">Poly Apo HRP (enzymatically inactive, polymeric) — no pre‑incubation required.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background: var(--gray-50);"><div class="container"><div class="section-header"><h2>Poly Apo HRP vs. Native HRP Overload</h2><div class="accent-line"></div></div>
+<div class="table-wrapper">
+    <table class="data-table">
+        <tr><th>Parameter</th><th>Excess Native HRP</th><th>Poly Apo HRP</th></tr>
+        <tr><td>Neutralizes anti-HRP</td><td>✅ Yes</td><td>✅ Yes</td></tr>
+        <tr><td>Enzymatic activity</td><td>✅ Yes (active)</td><td>❌ <strong>No (apo form)</strong></td></tr>
+        <tr><td>Background signal</td><td>❌ Yes — false negatives</td><td>✅ No</td></tr>
+        <tr><td>Maintains sensitivity</td><td>❌ Often compromised</td><td>✅ Preserved</td></tr>
+    </table>
+</div>
+<p style="margin-top:1.5rem;text-align:center"><strong>Unique advantage:</strong> Decouples neutralization from enzymatic activity — no excess signal, just clean blocking.</p></div></section>
 
 <section id="benefits"><div class="container"><div class="section-header"><h2>Why Add Poly Apo HRP to Your Buffer</h2><div class="accent-line"></div></div><div class="card-grid"><div class="card"><h3>🔧 Simple integration</h3><p>Add to reaction buffer — no protocol changes</p></div><div class="card"><h3>🎯 Specific neutralization</h3><p>Designed exclusively for anti-HRP antibodies</p></div><div class="card"><h3>🧪 Zero background signal</h3><p>Enzymatically inactive apo-HRP</p></div><div class="card"><h3>⚖️ Competitive advantage</h3><p>Differentiate your T3/T4 kits</p></div><div class="card"><h3>📊 Evidence-based</h3><p>Published principle (PMID: 29175172)</p></div><div class="card"><h3>🌍 Scalable</h3><p>Concentrated form for bulk use</p></div></div></div></section>
 
@@ -371,7 +463,6 @@
         modal.style.display = 'flex';
         modalImg.src = imgSrc;
         document.body.style.overflow = 'hidden';
-        // Принудительно центрируем — сброс трансформации
         modalImg.style.transform = 'scale(1)';
     }
 
@@ -383,7 +474,6 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
     window.onclick = (e) => { if (e.target === document.getElementById('imageModal')) closeModal(); };
 
-    // Burger menu functions
     function toggleMenu() {
         const nav = document.querySelector('.nav-menu');
         const overlay = document.querySelector('.nav-overlay');
