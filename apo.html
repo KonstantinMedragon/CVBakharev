@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Poly Apo HRP | Eliminate Anti-HRP Interference in Thyroid ELISA</title>
 
     <!-- Open Graph / Social Media Preview -->
@@ -39,28 +39,24 @@
             --white: #ffffff;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--secondary); line-height: 1.6; background: var(--white); }
+        body { font-family: 'Inter', sans-serif; color: var(--secondary); line-height: 1.6; background: var(--white); overflow-x: hidden; }
         
-        /* Burger Menu */
+        /* Burger Menu — без обводки, просто иконка */
         .burger-menu {
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 1000;
             cursor: pointer;
-            background: var(--white);
-            padding: 12px;
-            border-radius: 50%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            padding: 8px;
+            transition: opacity 0.2s ease;
         }
         .burger-menu:hover {
-            background: var(--gray-100);
-            transform: scale(1.05);
+            opacity: 0.7;
         }
         .burger-menu svg {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             stroke: var(--primary);
             stroke-width: 2;
         }
@@ -152,7 +148,7 @@
         .btn-outline { background: transparent; border: 2px solid var(--gray-200); color: var(--primary); }
         .btn-outline:hover { border-color: var(--accent); background: transparent; color: var(--accent); }
 
-        /* Модальное окно */
+        /* Модальное окно — всегда по центру */
         .modal {
             display: none;
             position: fixed;
@@ -177,6 +173,8 @@
             cursor: zoom-out;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            margin: auto;
         }
         @media (max-width: 768px) {
             .modal-content {
@@ -223,7 +221,7 @@
 </head>
 <body>
 
-<!-- Burger Menu -->
+<!-- Burger Menu — без обводки -->
 <div class="burger-menu" onclick="toggleMenu()">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -295,12 +293,29 @@
 </section>
 
 <section id="market"><div class="container"><div class="section-header"><h2>A Global Diagnostic Challenge</h2><div class="accent-line"></div><p>Thyroid disorders affect hundreds of millions worldwide. The thyroid function test market is large and growing.</p></div>
-<div class="two-column"><div><h3>Global Thyroid Function Test Market</h3><table class="data-table"><tr><th>Metric</th><th>Value</th></tr><tr><td>Global TFT Market (2025)</td><td>USD 1.89 – 2.03B</td></tr><tr><td>Projected (2030-2032)</td><td>USD 2.47 – 2.71B</td></tr><tr><td>CAGR</td><td>4.2% – 5.5%</td></tr></table><h3>Market Share by Technology</h3><table class="data-table"><tr><th>Technology</th><th>Share</th></tr><tr><td><strong>ELISA</strong></td><td>~60% by <em>volume</em></td></tr><tr><td><strong>Chemiluminescence (CLIA)</strong></td><td>~50% by <em>value</em></td></tr></table></div>
-<div class="card"><h3>Why This Matters for ELISA Manufacturers</h3><p>ELISA remains the workhorse for many labs. ~60% of thyroid tests by volume are still on ELISA. Every manufacturer of competitive one-step T3/T4 kits is potentially affected — routine QC cannot detect this interference.</p></div></div></div></section>
+<div class="two-column"><div><h3>Global Thyroid Function Test Market</h3><table class="data-table"><tr><th>Metric</th><th>Value</th></tr><tr><td>Global TFT Market (2025)</td><td>USD 1.89 – 2.03B</td></tr>
+                <tr><td>Projected (2030-2032)</td><td>USD 2.47 – 2.71B</td></tr>
+                <tr><td>CAGR</td><td>4.2% – 5.5%</td></tr>
+            </table>
+            <h3>Market Share by Technology</h3>
+            <table class="data-table">
+                <tr><th>Technology</th><th>Share</th></tr>
+                <tr><td><strong>ELISA</strong></td><td>~60% by <em>volume</em></td></tr>
+                <tr><td><strong>Chemiluminescence (CLIA)</strong></td><td>~50% by <em>value</em></td></tr>
+             </table>
+        </div>
+        <div class="card"><h3>Why This Matters for ELISA Manufacturers</h3><p>ELISA remains the workhorse for many labs. ~60% of thyroid tests by volume are still on ELISA. Every manufacturer of competitive one-step T3/T4 kits is potentially affected — routine QC cannot detect this interference.</p></div>
+    </div></div></section>
 
 <section style="background: var(--gray-50);" id="biology"><div class="container"><div class="section-header"><h2>The Biological Link: Thyroid Autoimmunity</h2><div class="accent-line"></div><p>Molecular mimicry between human Thyroid Peroxidase (TPO) and Horseradish Peroxidase (HRP).</p></div>
-<div class="two-column"><div><table class="data-table"><tr><th>Population</th><th>Anti-TPO Prevalence</th></tr><tr><td>General adult</td><td>6% – 13%</td></tr><tr><td>General female</td><td>10% – 15%</td></tr><tr><td>Autoimmune thyroid disease</td><td>37% – 90%</td></tr></table></div>
-<div class="card"><p><strong>Clinical reality:</strong> ~8% of males and 10-15% of females without known thyroid disease have thyroid autoantibodies. Any patient with thyroid autoimmunity is at risk for cross-reactive anti-HRP antibodies that ruin one-step T3/T4 ELISA results.</p></div></div></div></section>
+<div class="two-column"><div><table class="data-table"><tr><th>Population</th><th>Anti-TPO Prevalence</th></tr>
+                <tr><td>General adult</td><td>6% – 13%</td></tr>
+                <tr><td>General female</td><td>10% – 15%</td></tr>
+                <tr><td>Autoimmune thyroid disease</td><td>37% – 90%</td></tr>
+             </table>
+        </div>
+        <div class="card"><p><strong>Clinical reality:</strong> ~8% of males and 10-15% of females without known thyroid disease have thyroid autoantibodies. Any patient with thyroid autoimmunity is at risk for cross-reactive anti-HRP antibodies that ruin one-step T3/T4 ELISA results.</p></div>
+    </div></div></section>
 
 <section id="evidence"><div class="container"><div class="section-header"><h2>Published Evidence</h2><div class="accent-line"></div><p>Landmark case report (Lim et al., Clin Chim Acta. 2018, PMID: 29175172).</p></div>
 <div style="max-width:800px;margin:0 auto"><div class="image-block" onclick="window.open('https://pubmed.ncbi.nlm.nih.gov/29175172/', '_blank')"><img src="image/pubmed1.png" alt="PubMed"><div class="image-caption">Click to open abstract on PubMed</div></div>
@@ -309,10 +324,22 @@
 <section style="background: var(--gray-50);"><div class="container"><div class="section-header"><h2>Existing Approaches Are Flawed</h2><div class="accent-line"></div></div><div class="card-grid"><div class="card"><h3>Excess native HRP</h3><p>❌ High background signal (false negatives)</p></div><div class="card"><h3>PEG precipitation</h3><p>❌ Non-specific, dilutes sample</p></div><div class="card"><h3>Heterophile blocking tubes</h3><p>❌ Often ineffective vs high-affinity anti-HRP</p></div><div class="card"><h3>LC-MS/MS</h3><p>❌ Expensive, not scalable</p></div></div></div></section>
 
 <section id="solution"><div class="container"><div class="section-header"><h2>The Solution: Poly Apo HRP</h2><div class="accent-line"></div><p>No pre-incubation — works during the one-step reaction.</p></div>
-<div class="two-column"><div><h3>How it works</h3><p>Poly Apo HRP is added directly to the reaction buffer. During incubation, it outcompetes the HRP conjugate for anti-HRP antibodies due to its multiplicity of binding centers (polymeric, apo-enzymatically inactive).</p><table class="data-table"><tr><th>Without Poly Apo HRP</th><th>With Poly Apo HRP</th></tr><tr><td>Anti-HRP blocks HRP → no color</td><td>Poly Apo HRP captures antibodies first → HRP free → normal color</td></tr><tr><td><strong>False elevation of T3</strong></td><td><strong>Accurate result</strong></td></tr></table></div>
-<div class="image-block" onclick="openModalByDevice('apo2')"><img src="image/apo2.png" alt="Poly Apo HRP mechanism"><div class="image-caption">Poly Apo HRP (enzymatically inactive, polymeric) — no pre‑incubation required.</div></div></div></div></section>
+<div class="two-column"><div><h3>How it works</h3><p>Poly Apo HRP is added directly to the reaction buffer. During incubation, it outcompetes the HRP conjugate for anti-HRP antibodies due to its multiplicity of binding centers (polymeric, apo-enzymatically inactive).</p><table class="data-table"><tr><th>Without Poly Apo HRP</th><th>With Poly Apo HRP</th></tr>
+                <tr><td>Anti-HRP blocks HRP → no color</td><td>Poly Apo HRP captures antibodies first → HRP free → normal color</td></tr>
+                <tr><td><strong>False elevation of T3</strong></td><td><strong>Accurate result</strong></td></tr>
+             </table>
+        </div>
+        <div class="image-block" onclick="openModalByDevice('apo2')"><img src="image/apo2.png" alt="Poly Apo HRP mechanism"><div class="image-caption">Poly Apo HRP (enzymatically inactive, polymeric) — no pre‑incubation required.</div></div>
+    </div></div></section>
 
-<section style="background: var(--gray-50);"><div class="container"><div class="section-header"><h2>Poly Apo HRP vs. Native HRP Overload</h2><div class="accent-line"></div></div><table class="data-table"><tr><th>Parameter</th><th>Excess Native HRP</th><th>Poly Apo HRP</th></tr><tr><td>Neutralizes anti-HRP</td><td>✅ Yes</td><td>✅ Yes</td></tr><tr><td>Enzymatic activity</td><td>✅ Yes (active)</td><td>❌ <strong>No (apo form)</strong></td></tr><tr><td>Background signal</td><td>❌ Yes — false negatives</td><td>✅ No</td></tr><tr><td>Maintains sensitivity</td><td>❌ Often compromised</td><td>✅ Preserved</td></tr><tr><td>Ready for buffer incorporation</td><td>⚠️ Requires titration</td><td>✅ Yes — defined formulation</td></tr></table><p style="margin-top:1.5rem;text-align:center"><strong>Unique advantage:</strong> Decouples neutralization from enzymatic activity — no excess signal, just clean blocking.</p></div></section>
+<section style="background: var(--gray-50);"><div class="container"><div class="section-header"><h2>Poly Apo HRP vs. Native HRP Overload</h2><div class="accent-line"></div></div><table class="data-table"><tr><th>Parameter</th><th>Excess Native HRP</th><th>Poly Apo HRP</th></tr>
+            <tr><td>Neutralizes anti-HRP</td><td>✅ Yes</td><td>✅ Yes</td></tr>
+            <tr><td>Enzymatic activity</td><td>✅ Yes (active)</td><td>❌ <strong>No (apo form)</strong></td></tr>
+            <tr><td>Background signal</td><td>❌ Yes — false negatives</td><td>✅ No</td></tr>
+            <tr><td>Maintains sensitivity</td><td>❌ Often compromised</td><td>✅ Preserved</td></tr>
+            <tr><td>Ready for buffer incorporation</td><td>⚠️ Requires titration</td><td>✅ Yes — defined formulation</td></tr>
+         </table>
+    <p style="margin-top:1.5rem;text-align:center"><strong>Unique advantage:</strong> Decouples neutralization from enzymatic activity — no excess signal, just clean blocking.</p></div></section>
 
 <section id="benefits"><div class="container"><div class="section-header"><h2>Why Add Poly Apo HRP to Your Buffer</h2><div class="accent-line"></div></div><div class="card-grid"><div class="card"><h3>🔧 Simple integration</h3><p>Add to reaction buffer — no protocol changes</p></div><div class="card"><h3>🎯 Specific neutralization</h3><p>Designed exclusively for anti-HRP antibodies</p></div><div class="card"><h3>🧪 Zero background signal</h3><p>Enzymatically inactive apo-HRP</p></div><div class="card"><h3>⚖️ Competitive advantage</h3><p>Differentiate your T3/T4 kits</p></div><div class="card"><h3>📊 Evidence-based</h3><p>Published principle (PMID: 29175172)</p></div><div class="card"><h3>🌍 Scalable</h3><p>Concentrated form for bulk use</p></div></div></div></section>
 
@@ -344,6 +371,8 @@
         modal.style.display = 'flex';
         modalImg.src = imgSrc;
         document.body.style.overflow = 'hidden';
+        // Принудительно центрируем — сброс трансформации
+        modalImg.style.transform = 'scale(1)';
     }
 
     function closeModal() {
