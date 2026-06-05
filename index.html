@@ -534,8 +534,43 @@
 
         .intl-content p {
             color: var(--gray-600);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             line-height: 1.8;
+        }
+
+        /* Стиль для ссылки на демо-отчёт как в Poly Apo HRP */
+        .demo-report-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--secondary);
+            text-decoration: none;
+            padding: 0.25rem 0;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            border-bottom: 1px dashed var(--gray-300);
+        }
+        .demo-report-link i {
+            transition: transform 0.2s ease;
+            color: var(--accent);
+        }
+        .demo-report-link:hover {
+            color: var(--accent);
+        }
+        .demo-report-link:hover i {
+            transform: translateX(3px);
+        }
+        .preview-text {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            margin: 0.75rem 0;
+            padding-left: 0.5rem;
+            border-left: 3px solid var(--accent);
+            background: var(--gray-50);
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
         }
 
         .intl-grid {
@@ -720,6 +755,26 @@
             .intl-grid { grid-template-columns: 1fr; }
             .expertise-text h3 { font-size: 1.5rem; }
         }
+        
+        /* Demo link in header (kept from original but not used in hero) */
+        .demo-link-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            margin-right: 1rem;
+        }
+        .demo-link-header:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 <body class="lang-english">
@@ -887,9 +942,22 @@
                 <div class="intl-content scroll-reveal">
                     <h3 class="lang-ru">Переговоры и партнёрства</h3>
                     <h3 class="lang-en">Negotiations & Partnerships</h3>
-                    <p class="lang-ru">Веду переговоры о дистрибуции, OEM-поставках и технологическом трансфере. Лично открывал и налаживал бизнес в Таиланде и Сербии. Глубокое понимание регуляторики  и специфики китайского рынка.</p>
+                    <p class="lang-ru">Веду переговоры о дистрибуции, OEM-поставках и технологическом трансфере. Лично открывал и налаживал бизнес в Таиланде и Сербии. Глубокое понимание регуляторики и специфики китайского рынка.</p>
                     <p class="lang-en">Leading negotiations on distribution, OEM supply, and technology transfer. Personally established and managed business in Thailand and Serbia. Deep understanding of regulations and the Chinese market specifics.</p>
-                    <div class="intl-grid">
+                    
+                    <!-- ADDED: Preview text and link to Thailand IVD Market Demo (like Poly Apo HRP style) -->
+                    <div class="preview-text">
+                        <span class="lang-ru"><strong>Демо-отчёт: анализ рынка Таиланда</strong> — структура рынка IVD, возможности клинической химии, пути регистрации в Thai FDA, пошаговое руководство по открытию представительства.</span>
+                        <span class="lang-en"><strong>Demo report: Thailand market analysis</strong> — IVD market structure, clinical chemistry opportunities, Thai FDA pathways, step-by-step representative office setup guide.</span>
+                    </div>
+                    <a href="https://konstantinmedragon.github.io/survey/" target="_blank" class="demo-report-link">
+                        <i data-lucide="bar-chart-2" style="width: 16px; height: 16px;"></i>
+                        <span class="lang-ru">Смотреть полный отчёт</span>
+                        <span class="lang-en">View full report</span>
+                        <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                    </a>
+                    
+                    <div class="intl-grid" style="margin-top: 1.5rem;">
                         <div class="intl-card"><h4><i data-lucide="map-pin"></i> <span class="lang-ru">Китайский рынок</span><span class="lang-en">Chinese Market</span></h4><p class="lang-ru">Регуляторика, локализация</p><p class="lang-en">Regulatory affairs, localization</p></div>
                         <div class="intl-card"><h4><i data-lucide="handshake"></i> <span class="lang-ru">Деловые переговоры</span><span class="lang-en">Business Negotiations</span></h4><p class="lang-ru">Дистрибуция, OEM, трансфер</p><p class="lang-en">Distribution, OEM, transfer</p></div>
                         <div class="intl-card"><h4><i data-lucide="building-2"></i> <span class="lang-ru">Представительства</span><span class="lang-en">Representations</span></h4><p class="lang-ru">Открытие бизнеса в Таиланде и Сербии</p><p class="lang-en">Business setup in Thailand and Serbia</p></div>
@@ -970,6 +1038,7 @@
                 btn.classList.add('active');
                 document.body.classList.toggle('lang-english', lang === 'en');
                 document.body.classList.toggle('lang-russian', lang === 'ru');
+                lucide.createIcons();
             });
         });
         
